@@ -1,0 +1,275 @@
+<div class="bg-main">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="dashboard_title">Customers</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <nav aria-label="breadcrumb" class="">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item "><a class="breadcrumb_link">Customers</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Customers Info</li>
+          </ol>
+        </nav>
+        <div class=" border-top"></div>
+        <div class="clearfix">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="input-group">
+          <p class="filterLinks">Filters</p>
+          <select class="form-control filter-dropdowns" [(ngModel)]="status">
+            <option value="">Status</option>
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="NEW">NEW</option>
+            <option value="INACTIVE">INACTIVE</option>
+          </select>
+          <input class="form-control filter-dropdowns" placeholder="From Date" name="startDate" [(ngModel)]="startDate"
+            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+          <input class="form-control filter-dropdowns" placeholder="To Date" name="endDate" [(ngModel)]="endDate"
+            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+          <select class="form-control filter-dropdowns" [(ngModel)]="kyc">
+            <option value="">KYC</option>
+            <option value="true">VERIFIED</option>
+            <option value="false">NOT VERIFIED</option>
+          </select>
+          <button class="btn search-btn " (click)="customerListing()">View</button>
+        </div>
+      </div>
+      <div class="col-md-5 stats">
+         <ul>
+          <li style="margin-top: 3px;">Actions:</li>
+          <li><img src="assets/cust_list/Component 42 – 1.png" class="pl-3"></li>
+          <li><img src="assets/cust_list/Iconly-Two-tone-Downlaod.png" class="pl-3"></li>
+          <li><img src="assets/cust_list/Deactive-user.png" class="pl-3"></li>
+          <li><img src="assets/cust_list/Active user.png" class="pl-3 p-r-3"></li>
+          <li (click)="refresh()" style="cursor: pointer;">Refresh</li>
+        </ul> 
+        <div class="text-right">
+          <p class="action_title">Actions :
+            <span class="action_icn ml-4"><i class="fa fa-download"></i></span>
+            <span (click)="refresh()" class="action_icn"><i class="fa fa-refresh"></i></span>
+          </p>
+          <select class="sort-dropdowns" [(ngModel)]="sort" (change)="customerListing()">
+            <option value="">Sort</option>
+            <option value="ASC">ASC</option>
+            <option value="DESC">DESC</option>
+          </select>
+        </div>
+      </div>
+      
+
+    </div> -->
+    <div class="col-md-12">
+
+        <div class="row">
+          <div class="col-md-7">
+
+            
+            <div class="input-group">
+              <p class="filterLinks">Filter</p>
+              <div class="likedropdown">
+              <select  class="form-control filter-dropdowns" [(ngModel)]="status">
+                  <option value="">Status</option>
+                  <option value="ACTIVE">ACTIVE</option>
+                  <option value="NEW">NEW</option>
+                  <option value="INACTIVE">INACTIVE</option>
+              </select>  
+              <span class="fa fa-chevron-down errspan"></span>
+              </div>
+
+              <div class="likedropdown">
+                <input class="form-control filter-dropdowns" placeholder="From Date" name="startDate" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" autocomplete="off">
+                <span class="fa fa-chevron-down errspan"></span>
+
+              </div>
+            
+              <div class="likedropdown">
+            <input class="form-control filter-dropdowns" placeholder="To Date"  name="endDate" [(ngModel)]="endDate" ngbDatepicker #t="ngbDatepicker" (click)="t.toggle()" autocomplete="off">               
+            <span class="fa fa-chevron-down errspan"></span>
+          </div>
+          <div class="likedropdown">
+              <select class="form-control filter-dropdowns" [(ngModel)]="kyc">
+                <option value="">KYC</option>
+                  <option value="true">VERIFIED</option>
+                  <option value="false">NOT VERIFIED</option>
+              </select>
+              <span class="fa fa-chevron-down errspan"></span>
+
+              </div>
+              <button class="btn search-btn " (click)="customerListing()">View</button>
+          </div>
+
+          </div>
+          <div class="col-md-5 stats">
+            <!-- <ul>
+              <li style="margin-top: 3px;">Actions:</li>
+              <li><img  src="assets/cust_list/Component 42 – 1.png" class="pl-3"></li>
+              <li><img  src="assets/cust_list/Iconly-Two-tone-Downlaod.png" class="pl-3"></li>
+              <li><img  src="assets/cust_list/Deactive-user.png" class="pl-3"></li>
+              <li><img  src="assets/cust_list/Active user.png" class="pl-3 p-r-3"></li>
+              <li (click)="refresh()" style="cursor: pointer;">Refresh</li>
+              
+
+            </ul> -->
+            <div class="text-right action_content">
+              <p class="action_title">Actions :
+                <span class="action_icn ml-4"><i class="fa fa-download"></i></span>
+                <span (click)="refresh()" class="action_icn"><i class="fa fa-refresh"></i></span>
+              </p>
+              <select class="sort-dropdowns" [(ngModel)]="sort" (change)="customerListing()">
+                <option value="">Sort</option>
+                <option value="ASC">ASC</option>
+                <option value="DESC">DESC</option>
+              </select>
+            </div>
+            
+              
+             
+              <!-- <select class="sort-dropdowns" [(ngModel)]="sort"  (change)="customerListing()">
+                  <option value="">Sort</option>
+                  <option value="ASC">ASC</option>
+                  <option value="DESC">DESC</option>
+              </select>         -->
+            
+          </div>
+          <div class="clearfix">&nbsp;</div>
+            
+           
+          <div class="col-md-12 ">
+              
+                
+                
+                <div class="white-box" [appLoading]="isLoading">
+                  <table class="table table-responsive buying-tabs-table cutomerstable">
+                              
+                    <thead class="head-bg">
+                    <tr>
+                      <th scope="col">
+                        
+                        
+                      </th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Active Since</th>
+                      <th scope="col">Mobile Number</th>
+                      <th scope="col">Total Holding</th>
+                      <th scope="col">Total Transaction</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">KYC</th>
+                      <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let customer of customers; let i = index">     
+                      <td></td>
+                      <td>{{ customer.name || '-'}}</td>
+                      <td>{{ customer.activeSince || '-'}}</td>
+                      <td>{{ customer.mobile || '-'}}</td>
+                      <td>{{ customer.totalHolding || '-'}}</td>
+                      <td>{{ customer.totalTransactions || '-'}}</td>  
+                      <td>
+                          <button *ngIf="customer.status == 'ACTIVE' " class="btn activated-btn">Activated</button>
+                          <button *ngIf="customer.status == 'PENDING' " class="btn new-btn">New</button>
+                          <button *ngIf="customer.status == 'INACTIVE' " class="btn deactivated">Deactivated</button>
+                          
+                      </td>
+                      <td style="">                        
+                        <span *ngIf="customer.isKYCVerified" class="verified-text"><img  src="assets/cust_list/Iconly-Two-tone-Shield Done.png" class="pl-1"> Verified</span>
+                        <span *ngIf="customer.isKYCVerified == false" class="verified-text"><i class="fa fa-clock-o side_icn"></i> Pending </span>
+                      </td>
+                      <td>
+                        <button class="btn table-view-btn mr-1" (click)='viewCustomer(customer.id)'>View</button>                     
+                        <button data-toggle="modal" data-target="#deactivateModal" data-whatever="@mdo" *ngIf="customer.status == 'ACTIVE' " class="btn deactivate-btn" (click)="setId(customer.id)" >Deactivate</button>
+                        <button data-toggle="modal" data-target="#activateModal" data-whatever="@mdo" *ngIf="customer.status == 'INACTIVE' " class="btn activate-btn" (click)="setId(customer.id)">Activate</button>         
+                      </td>
+                    </tr>    
+                    </tbody>
+                  </table>          
+                  
+                </div>
+                <div class="col-md-12 ">                  
+                <ngb-pagination *ngIf="showPagination" class="d-flex justify-content-end mt-3" (pageChange)="onchangePagination($event)" [collectionSize]="totalSize" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>       
+                    
+        </div>
+      </div>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+  </div>
+  <div class="clearfix">&nbsp;</div>
+</div>
+<div class="modal fade deactivate-popup" id="deactivateModal" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">        
+        <button type="button" class="close" id="close1" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">        
+          <div class="">
+            <img src="assets/cust_details/deactivate_img.png" class="d-block m-auto">
+          </div>        
+        <h5 class="modal-title deactivate-title" >Deactivate Account</h5>
+        <p class="deactivate-reason">Reason to deactivate</p>
+        <form>
+          <div class="form-group">           
+            <select class="form-select form-control " aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="1">Reason One</option>
+              <option value="2">Reason Two</option>
+              <option value="3">Reason Three</option>
+            </select>
+          </div>         
+        </form>
+      </div>
+      <div class="modal-footer text-center">       
+        <button type="button" class="btn btn-primary btn-submit" (click)="changeCustomerStatus('deactivate')" >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade activate-popup" id="activateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" id="close2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="">
+            <img src="assets/cust_details/activate_img.png" class="d-block m-auto">
+          </div>
+        
+       
+        <h5 class="modal-title activate-title" >Activate Account</h5>
+        <p class="deactivate-reason">Reason to activate</p>
+        <form>
+          <div class="form-group">
+           
+            <select class="form-select form-control " aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer text-center">
+       
+        <button type="button" class="btn btn-primary btn-submit" (click)="changeCustomerStatus('activate')" >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

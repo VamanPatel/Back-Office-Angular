@@ -1,0 +1,140 @@
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <h3 class="cust_title">Info Management</h3>
+        </div>
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Info Management</a></li>
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Testimonies</li>
+
+                </ol>
+            </nav>
+        </div>
+        <div class="row border-top"></div>
+        <div class="row mt-4">
+            <div class="col text-left">
+                <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Add / New Testimonies</b></a></p>
+            </div>
+            <div class="col text-right">
+                <!-- <button class="btn-reset">Reset</button> -->
+                
+                <!-- <button class="btn-save"  (click)="addTestimonial()" type="button" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' "  [disabled]="loadButton" >
+                    <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                    Save
+                </button> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Testimony</p>
+
+                        
+                    </div>
+                    <div class="col text-right" data-toggle="collapse" data-target="#demo">
+                        
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse show" id="demo">
+                    <div class="form_container">
+                        <form [formGroup]="form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="toggle_container">
+                                        <span class="show_title">Hide</span>
+                                        <label class="switch"><input type="checkbox"  [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}"  />
+                                            <div></div>
+                                        </label>
+                                        
+                                        <span class="hide_title">Show</span>
+                                    </div>
+                                </div>                               
+                            </div>
+                            <div class="clearfix">&nbsp;</div>
+                            <div class="clearfix">&nbsp;</div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">User Name</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input formControlName="username" type="text" placeholder="Username">
+                                    <div *ngIf="controls.username.invalid && (controls.username.dirty || controls.username.touched || isError)" class="text-danger">
+                                        <div *ngIf="controls.username.errors.required" class="error-center">Username is required *</div>
+                                        <div class="clearfix">&nbsp;</div>                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Occupation</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input formControlName="occupation" type="text" placeholder="Occupation">
+                                    <div *ngIf="controls.occupation.invalid && (controls.occupation.dirty || controls.occupation.touched || isError)" class="text-danger">
+                                        <div *ngIf="controls.occupation.errors.required" class="error-center">Occupation is required *</div>
+                                        <div class="clearfix">&nbsp;</div>                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">User Photo</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Browse" formControlName="imageUrl">
+                                    <p class="image_note">Image Size (ex.: 390*250px)</p>
+                                    <img ng-show="uploadedImage" [src]="uploadedImage" class="testimonial_img " >
+
+                                </div>
+                                <div class="col-md-5">
+                                    
+                                     <label [ngClass]="imageUploadBtn ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        
+                                        Browse 
+                                        
+                                        <input type="file" accept="image/*" hidden (change)="onFileChange($event)"  [ngClass]="imageUploadBtn ? 'btn-save-disabled' : 'btn-save' "  [disabled]="imageUploadBtn"   >
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="imageUploadBtn"  style="height:1rem; width:1rem"></i>
+                                    </label> 
+                                    
+
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Testimony</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <textarea rows="3" formControlName="testimony" placeholder=""></textarea>
+                                    <div *ngIf="controls.testimony.invalid && (controls.testimony.dirty || controls.testimony.touched || isError)" class="text-danger">
+                                        <div *ngIf="controls.testimony.errors.required" class="error-center">Testimony is required *</div>
+                                        <div class="clearfix">&nbsp;</div>                                     
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="mt-4 row ">
+                                <div class="col text-right">
+                                    <button (click)="refresh()" class="btn-reset">Reset</button>             
+                    
+                                    <button (click)="addTestimonial()" type="button" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' "  [disabled]="loadButton" >
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                        Save
+                                    </button>
+                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

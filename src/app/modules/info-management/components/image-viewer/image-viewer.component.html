@@ -1,0 +1,9 @@
+<div *ngIf="open" class="viewer-container">
+    <div class="viewer-content">
+      <a class="close-viewer" (click)="close.emit()">
+          <!-- Close Image -->
+          <i class="fa fa-times-circle close-icon-size" aria-hidden="true"></i>
+      </a>
+      <img class="main-img" [src]="imageURL"/>
+    </div>
+  </div>

@@ -1,0 +1,340 @@
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <div class="col text-left class_left">
+                <h3 class="cust_title">Products</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+                        <li class="breadcrumb-item "><a class="breadcrumb_link">Products</a></li>
+                        <li class="breadcrumb-item "><a class="breadcrumb_link">T-Bills </a></li>
+                        <li class="breadcrumb-item active" aria-current="page">T-Bill 364</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row border-top"></div>
+
+        <div class="row">
+            <div class="overview_card">
+                <p class="card_title">Add New T-Bill</p>
+                <div class="row p-2">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Product Type</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">T-Bills</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Issuer</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-field" placeholder="Ghana Govt">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Country</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">Ghana</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Day Count</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">Actual/365</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Taxable</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">Yes</option>
+                                        <option value="Option 2">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Currency</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">GHS</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Listing Status</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">Listed</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Exchange</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">GSE</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Fund Manager</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-field" placeholder="Scotia Funds">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2 mt-4 mb-3">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <span class="icn_text"> Security Level</span>
+                </div>
+
+                <div class="row border-top1"></div>
+
+                <div class="row p-2 mt-2">
+                    <div class="col-md-6">
+
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Security Name</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-field" placeholder="T-Bill 1">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Issuer Date</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="date" class="form-control input-field">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Tenor</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">364</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Security Code</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">XS18214623</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Maturity Date</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="date" class="form-control input-field">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2 mt-4 mb-3">
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                    <span class="icn_text pt-1"> Transaction Level</span>
+                </div>
+
+                <div class="row border-top1"></div>
+
+                <div class="row p-2 mt-2">
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Security Name</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="select-dropdown">
+                                    <select class="form-control input-field">
+                                        <option value="" hidden>-- Select --</option>
+                                        <option value="Option 1">T-Bill</option>
+                                        <option value="Option 2">-</option>
+                                        <option value="Option 3">-</option>
+                                        <option value="Option 4">-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-3 text-left">
+                                <label class="text-label">Amount</label>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <div class="btn-group" style="width: 100%;">
+                                    <div class="select-dropdown btn-dropdown" >
+                                        <select class="form-control input-field">
+                                            <option value="Option 1">GHS</option>
+                                            <option value="Option 2">-</option>
+                                            <option value="Option 3">-</option>
+                                            <option value="Option 4">-</option>
+                                        </select>
+                                    </div>
+                                    <input type="text" class="form-control input-field" placeholder="" />
+                                    <input type="hidden" class="form-control input-field" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                   
+                </div>
+                <div class="row p-2">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2 text-left">
+                                <label class="text-label">Instructions</label>
+                            </div>
+                            <div class="col-md-10 text-right text_field" >
+                                <textarea rows="3" class="form-control input-field"></textarea>
+                            </div>
+                        </div>
+                        
+                    </div>
+                  
+                </div>
+                <div class="row p-2">
+                    <div class="col-md-6 text-left">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="text-label">Indicative Buy</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-percent" type="button">
+                                            <i class="fa fa-percent" aria-hidden="true"></i>
+                                        </button>
+                                      </div>
+                                    <input type="text" class="form-control input-field" placeholder="">
+                                  </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="text-label">Indicative Sell</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-percent" type="button">
+                                            <i class="fa fa-percent" aria-hidden="true"></i>
+                                        </button>
+                                      </div>
+                                    <input type="text" class="form-control input-field" placeholder="">
+                                  </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border-top1 mt-4"></div>
+
+                <div class="row p-2 mt-4 mb-4">
+                    <div class="col text-left">
+                        <button class="btn-reset">Reset</button>
+                        <button type="submit" class="btn-save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

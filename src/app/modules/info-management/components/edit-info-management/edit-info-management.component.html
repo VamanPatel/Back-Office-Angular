@@ -1,0 +1,221 @@
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <h3 class="cust_title">Info Management</h3>
+        </div>
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Info Management</a></li>
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Home Pages</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row border-top"></div>
+        <div class="row mt-4">
+            <div class="col text-left">
+                <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit Home Page</b></a></p>
+            </div>
+            <div class="col text-right">
+                <span style="font-weight: 600;">Actions: </span>
+                <img src="assets/cust_details/delete_icn.png" class="delete_img ml-4 mr-3 cursor-pointer">
+                <button class="btn-reset">Reset</button>
+                <button class="btn-reset">Preview</button>
+                <button class="btn-reset">Save</button>
+                <button class="btn-save">Publish</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Top Header</p>
+
+                        <div class="toggle_container">
+                            <span class="show_title">Show</span>
+                            <label class="switch"><input type="checkbox" />
+                                <div></div>
+                            </label>
+                            <span class="hide_title">Hide</span>
+                        </div>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#demo">
+                        <img src="assets/cust_details/delete_icn.png" class="delete_img mr-3 cursor-pointer">
+                        <img src="assets/cust_details/down_icn.png" class="delete_img mr-3 cursor-pointer">
+                        <img src="assets/cust_details/up_icn.png" class="delete_img mr-3 cursor-pointer">
+
+
+                        <!-- <span><i class="fa fa-trash add_icn mr-4"></i></span> -->
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="demo">
+                    <div class="form_container">
+                        <form action="/action_page.php">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" placeholder="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" placeholder="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Desktop Image</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Browse">
+                                    <p class="image_note">Image Size(ex.: 390*250px)</p>
+
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="btn btn-browse">
+                                        Browse <input type="file" hidden>
+                                    </label>
+                                    <button class="btn btn-upload">Upload</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Desktop Text</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Know More">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="toggle_container1">
+                                        <span class="show_title">On</span>
+                                        <label class="switch"><input type="checkbox" />
+                                            <div></div>
+                                        </label>
+                                        <span class="hide_title">Off</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">T-Bill Box</p>
+
+                        <div class="toggle_container">
+                            <span class="show_title">Show</span>
+                            <label class="switch"><input type="checkbox" />
+                                <div></div>
+                            </label>
+                            <span class="hide_title">Hide</span>
+                        </div>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#demo1">
+                        <img src="assets/cust_details/delete_icn.png" class="delete_img mr-3 cursor-pointer">
+                        <img src="assets/cust_details/down_icn.png" class="delete_img mr-3 cursor-pointer">
+                        <img src="assets/cust_details/up_icn.png" class="delete_img mr-3 cursor-pointer">
+
+
+                        <!-- <span><i class="fa fa-trash add_icn mr-4"></i></span> -->
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="demo1">
+                    <div class="form_container">
+                        <form action="/action_page.php">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" placeholder="T-Bill">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" placeholder="Sub Title">
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Browse">
+                                    <p class="image_note">Image Size(ex.: 390*250px)</p>
+
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="btn btn-browse">
+                                        Browse <input type="file" hidden>
+                                    </label>
+                                    <button class="btn btn-upload">Upload</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Know More">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="toggle_container1">
+                                        <span class="show_title">On</span>
+                                        <label class="switch"><input type="checkbox" />
+                                            <div></div>
+                                        </label>
+                                        <span class="hide_title">Off</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card" >
+                <div class="row p-4" >
+                    <div class="col text-left">
+                        <p class="testimonies_title">Add Image</p>
+                    </div>
+                    <div class="col text-right">
+                        <i class="fa fa-plus-square-o" ></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4 row ml-n4">
+            <div class="col text-left">
+                <span style="font-weight: 600;">Actions: </span>
+                <img src="assets/cust_details/delete_icn.png" class="delete_img ml-4 mr-3 cursor-pointer">
+                <button class="btn-reset">Reset</button>
+                <button class="btn-reset">Preview</button>
+                <button class="btn-reset">Save</button>
+                <button class="btn-save">Publish</button>
+            </div>
+        </div>
+
+    </div>
+</div>

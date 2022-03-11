@@ -1,0 +1,140 @@
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <h3 class="cust_title">
+                    Info Management                
+                </h3>
+            </div>
+            <div class="col-md-6 text-right p-0">
+                <button [routerLink]="['/info-management/testimonies/add-testimony']" type="button" class="addTest btn"><i class="fa fa-plus-circle"></i> AddTestimony</button>
+            </div>       
+        </div>
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Info Management</a></li>
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Testimonies</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row border-top"></div>
+        <div class="row mt-4">
+            <div class="col text-left">
+                <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit / Testimonies</b></a></p>
+            </div>
+            <!-- <div class="col text-right">
+                <button class="btn-reset">Reset</button>
+                <button class="btn-save">Save</button>
+            </div> -->
+        </div>        
+        <!-- <form *ngIf="SchoolDetailsForm" [formGroup]="SchoolDetailsForm" (submit)="SaveData()">  
+        <div class="row" >
+            <div formArrayName="ClassDetails" *ngFor="let cd of formItems ;let i=index;">
+                <div formGroupName="{{i}}">
+                
+                    <input  type="text"  formControlName="username" placeholder="Username" value="{{cd.get('username').value}} ">
+                    <input  type="text" formControlName="occupation" placeholder="Occupation" value="{{cd.occupation}}">
+                    <textarea rows="3" formControlName="testimony">{{cd.testimony}}</textarea>
+                    
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+        </form> -->
+        <div class="row" >
+            <div *ngFor="let cd of testimonials ;let i=index;" class="testimoni_card1">
+
+                <div >
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">{{ cd.username | titlecase  }}</p>
+
+                        
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#demo">
+                        <span class="add_title mr-4">Added on <span class="add_date">{{cd.createdAt | date: 'dd-MM-yyyy'}}</span></span>
+
+                        
+                        <span><i class="fa fa-pencil-square-o add_icn mr-4" [routerLink]="['/info-management/testimonies/edit', cd.id]"></i></span>
+
+                        <span><i class="fa fa-trash add_icn mr-4" (click)="deleteTestimony(cd.id)"></i></span>
+                        <span ><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="collapse" id="demo"  style="padding:0px 1.5rem 1.5rem 1.5rem">
+                    <div class="form_container">
+                        
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img ng-show="cd.get('imageUrl').value" [src]="cd.imageUrl" class="testimonial_img " >
+
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="show_title">Show</span>
+                                            <label *ngIf="cd.show == false" class="switch"><input type="checkbox" checked disabled   />
+                                                <div></div>
+                                            </label>
+                                            <label *ngIf="cd.show ==  true" class="switch"><input type="checkbox" disabled   />
+                                                <div></div>
+                                            </label>
+                                            <span class="hide_title">Hide</span>
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="label_field" for="">User Name</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <p class="personalData">{{ cd.username | titlecase }}</p>                                       
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="clearfix"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="label_field" for="">Occupation</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <p class="personalData">{{ cd.occupation | titlecase }}</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <label class="label_field" for="">Testimony</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <p class="personalData">{{ cd.testimony }}</p>
+                                  
+                                </div>
+                            </div>
+                        
+                        
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+        
+
+
+
+        
+
+    </div>
+</div>

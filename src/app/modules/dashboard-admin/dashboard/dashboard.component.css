@@ -1,0 +1,203 @@
+.dashboard_title {
+    color: #212529;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.datetime{
+    float: right;
+    color: #434343;
+    font-size: 14px;
+    margin-top: 3%;
+    font-weight: bold;
+    margin-right: -20px;
+    text-transform: none !important
+}
+.btn-add{    
+    font-size: 16px;
+    background: #2B92F9;
+    opacity: 1;
+    color: #fff;
+    border-radius: 5px;
+    min-height: 30px;
+    box-shadow: 0 10px 10px -2px rgb(52 152 219 / 25%);
+    padding: 5px 10%;
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border: none;
+}
+.white-box{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 0px #D9E3EC;
+    min-height: 375px;
+    border: 1px solid #E4E4E4;
+}
+.white-box h2{
+    color: #212529;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 6px 14px;
+    margin-top: 5px;
+
+}
+.view-btn {
+    padding: 4px 15px;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.5rem;
+}
+.head-bg{
+    background: #E4E4E4;
+    height: 44px;
+    box-shadow: 0px 0px 0px #5A71D01B;
+    font-size: 14px;
+
+}
+.head-bg tr th{
+    color: #212529 !important
+}
+.head-bg p{
+    color: #212529;
+    font-size: 18px;
+    padding: 10px;
+}
+.head-bg span{
+    float: right;
+}
+.table-new-customer thead th{
+    color:#A7AFB7
+}
+.table-new-customer tbody tr.active, .table-new-customer tbody tr:hover{   
+    color: #212529;
+    background: #F8F8F8 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 10px #0000001c;
+    opacity: 1;
+}
+.buying-tabs-table tbody tr.active, .buying-tabs-table tbody tr:hover {
+    color: #212529;
+    background: #F8F8F8 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 10px #0000001c;
+    opacity: 1;
+}
+
+.table-new-customer .view-btn{
+    background: #2B92F9;
+    color: #fff;
+    font-size: 13px;
+}
+.table th, .table td {
+    font-size: 13px;
+}
+.table-new-customer, .table-new-customer tr, .table-new-customer tr td  {border: none;}
+.table-new-customer tr{
+    padding:0px 10px;
+}
+.nav-tabs {
+    border-bottom: none;
+}
+.refershlink{
+    color: #212529;
+    font-size: 15px;
+    text-align: right;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.refershlink :hover {
+    color: #2B92F9;
+    text-decoration: none;
+}
+.buying-tabs{
+    width: 95%;
+    margin: 0 auto;
+}
+.buying-tabs li a{
+    color: #212529;
+}
+.buying-tabs-table td:first-child , .p-l-10 { padding-left: 5%; }
+.p-l-3{
+    padding-left: 3%;
+}
+.table-new-customer td:first-child { padding-left: 5%; }
+.buying-tabs li a.active{
+    border-bottom: 2px solid #2B92F9;
+    border-top: none !important; 
+    border-right: none !important;
+    border-left: none !important;
+    color: #2B92F9;
+}
+.buying-tabs-table {
+    margin-top: -25px;
+}
+.buying-tabs-table .view-btn{
+    background: #2B92F9;
+    color: #fff;
+    font-size: 12px;
+}
+.bg-main {
+    background-color: #F8F8F8;
+    min-height: 100vh;
+   
+}
+.breadcrumb {
+    padding: 18px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: 0px;
+    text-align: left;
+    margin-top: -27px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.breadcrumb_link {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb_link:hover {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb>.active {
+    color: #212529;
+}
+.breadcrumb>li+li:before {
+    padding: 0px 8px !important;
+    color: #A7AFB7 !important;
+    content: "\002F" !important;
+    margin-left: -8px;
+}
+.border-top {
+    border-top: 2px solid #dee2e6 !important;
+    margin-top: -25px;
+}
+#content-wrapper{
+    padding: 0px !important;
+}
+.highcharts-button-box{
+    background-color: #e6e6e6 !important;
+}
+
+.table-responsive {
+    display: table;
+}
+:host::ng-deep .highcharts-credits {
+    display: none;
+}
+
+@media screen and (min-width:360px) and (max-width:640px) {
+    .table-responsive {
+        display: block;
+    }
+    .datetime {
+        margin-top: -30px;
+        margin-right: -6px;
+    }
+    .btn-add {
+        margin-top: -18px;
+    }
+    .refershlink {
+        margin-top: 20px;
+    }
+}
+

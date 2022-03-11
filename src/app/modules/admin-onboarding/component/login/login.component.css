@@ -1,0 +1,12 @@
+@media screen and (min-width:320px) and (max-width:640px) {
+    .user_icon_img {
+        width: 60px !important;
+        margin-top: 20px;
+      }
+      .font-size-30px {
+        font-size: 25px;
+    }
+    .form-control {
+        width: 88%;
+    }
+}

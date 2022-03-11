@@ -1,0 +1,123 @@
+.cust_title {
+    color: #212529;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.bg-main {
+    background-color: #F8F8F8;
+    height: auto;
+    margin-bottom: 30px;
+}
+.breadcrumb {
+    padding: 18px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: 0px;
+    text-align: left;
+    margin-top: -27px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.breadcrumb_link {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb_link:hover {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb>.active {
+    color: #212529;
+}
+.breadcrumb>li+li:before {
+    padding: 0px 8px !important;
+    color: #A7AFB7 !important;
+    content: "\002F" !important;
+    margin-left: -8px;
+}
+.border-top {
+    border-top: 2px solid #dee2e6 !important;
+    margin-top: -25px;
+}
+
+.nav-tabs .nav-link {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none;
+    font-size: 17px !important;
+    color: #434343 !important;
+    font-weight: 600;
+}
+.nav-tabs .nav-link.active {
+    color: #2B92F9 !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid #2B92F9 !important;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 2rem !important;
+}
+.nav-item {
+    padding-right: 50px;
+    margin-top: 20px;
+}
+.tab_content {
+    width: 100%;
+}
+.btn-reset {
+    border: 1px solid #333;
+    background-color: transparent;
+    padding: 5px 20px;
+    margin-right: 10px;
+}
+
+.btn-save {
+    background-color: #2B92F9;
+    border: 1px solid #2B92F9;
+    padding: 5px 20px;
+    color: #fff;
+}
+.btn-save-disabled{
+    background-color: #9a9fa4;
+    border: 1px solid #9a9fa4;
+    padding: 5px 20px;
+    color: #fff;
+}
+.content_card {
+    box-shadow: 0px 0px 0px #5A71D01B;
+    border: 1px solid #E4E4E4;
+    height: auto;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 0px;
+    background: #fff;
+}
+.content_title {
+    font-size: 17px;
+    font-weight: 600;
+    padding: 15px;
+}
+.fa-angle-up {
+    padding: 15px;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.editor_card {
+    box-shadow: 0px 0px 0px #5A71D01B;
+    
+    height: 200px;
+    width: 100%;
+    border-radius: 0px;
+    margin-bottom: 20px;
+}
+.body_title {
+    font-size: 13px;
+    font-weight: 600;
+}
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 300px !important;
+}

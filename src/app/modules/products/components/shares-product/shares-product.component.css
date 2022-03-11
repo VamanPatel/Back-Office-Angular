@@ -1,0 +1,117 @@
+.cust_title {
+    color: #212529;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.bg-main {
+    background-color: #F8F8F8;
+    height: auto;
+    margin-bottom: 30px;
+}
+.breadcrumb {
+    padding: 18px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: 0px;
+    text-align: left;
+    margin-top: -27px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.breadcrumb_link {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb_link:hover {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb>.active {
+    color: #212529;
+}
+.breadcrumb>li+li:before {
+    padding: 0px 8px !important;
+    color: #A7AFB7 !important;
+    content: "\002F" !important;
+    margin-left: -8px;
+}
+.border-top {
+    border-top: 2px solid #dee2e6 !important;
+    margin-top: -25px;
+}
+
+.nav-tabs .nav-link {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none;
+    font-size: 17px !important;
+    color: #434343 !important;
+    font-weight: 600;
+}
+.nav-tabs .nav-link.active {
+    color: #2B92F9 !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid #2B92F9 !important;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 2rem !important;
+}
+.nav-item {
+    padding-right: 50px;
+    margin-top: 20px;
+}
+.tab_content {
+    width: 100%;
+}
+.overview_card {
+    box-shadow: 0px 0px 0px #5A71D01B;
+    border: 1px solid #E4E4E4;
+    height: auto;
+    width: 100%;
+    margin-top: 20px;    
+}
+.card_title {
+    padding: 20px;
+    font-size: 20px;
+    padding-bottom: 0px;
+    color: #212529;
+    font-weight: 600;
+}
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.table thead th {
+    background-color: #5A71D01B;
+}
+.btn-active {
+    border: 1px solid green;
+    color: green;
+    background-color: transparent;
+    padding: 4px 11px;
+    border-radius: 3px;
+}
+.icn_img {
+    color: #A0A0A0;
+    font-size: 18px;
+    vertical-align: text-bottom;
+    padding-right: 18px;
+}
+.btn-deactive {
+    border: 1px solid #E83F3F;
+    color: #E83F3F;
+    background-color: transparent;
+    padding: 4px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}

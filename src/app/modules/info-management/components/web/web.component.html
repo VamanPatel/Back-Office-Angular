@@ -1,0 +1,1260 @@
+<app-image-viewer [imageURL]="imageURL" [open]="viewerOpen" (close)="viewerOpen = false"></app-image-viewer>
+
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <h3 class="cust_title">Info Management</h3>
+        </div>
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Info Management</a></li>
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Web</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row border-top"></div>
+        <div class="row mt-4">
+            <div class="col text-left">
+                <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit / Web </b></a></p>
+            </div>
+            <div class="col text-right">
+                <button class="btn-reset" (click) = "resetForm()">Reset</button>
+                <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="saveContent()"
+                    [disabled]="loadButton">
+                    <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"
+                        style="height:1rem; width:1rem"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Contact Details</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#demo">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="demo">
+                    <div class="form_container">
+                        <form [formGroup]="contentDetail">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Contact Number</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" placeholder="8001133343" formControlName="homeNumber">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Seed Email ID</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" placeholder="info@payplus.com" formControlName="homeEmail">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Top Header</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#demo1">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="demo1">
+                    <div class="form_container">
+                        <form [formGroup]="topHeader">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="topHeaderImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('headerImage')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('topHeader')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-6">
+                                        <label [ngClass]="topHeaderButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="topHeaderButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"  (change)="readURL($event, 'headerImage')" hidden >
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">TBILL Banner</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#tbillBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="tbillBanner">
+                    <div class="form_container">
+                        <form [formGroup]="tbillBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="tBillImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('tbillBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('tbillBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="tbillButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="tbillButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"  (change)="readURL($event, 'tbillBanner')" hidden >
+                                    </label>
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'tbillBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="tbillButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('tbillBanner')" [disabled]="tbillButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="tbillButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Bonds Banner</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#bondBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="bondBanner">
+                    <div class="form_container">
+                        <form [formGroup]="bondBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="bondImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('bondBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('bondBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="bondButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="bondButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'bondBanner')" hidden  >
+                                    </label>
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'bondBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="bondButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('bondBanner')" [disabled]="bondButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="bondButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Mutual Fund Box</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#mutualFundBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="mutualFundBanner">
+                    <div class="form_container">
+                        <form [formGroup]="mutualFundBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="mutualFundImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('mutualFundBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('mutualFundBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'mutualFundBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="mutualFundButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('mutualFundBanner')" [disabled]="mutualFundButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="mutualFundButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                    <div class="col-md-6">
+                                        <label [ngClass]="mutualFundButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+    
+                                            <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="mutualFundButton"  style="height:1rem; width:1rem"></i>
+                                            Browse
+                                             <input type="file" accept="image/*"   (change)="readURL($event, 'mutualFundBanner')" hidden  >
+                                        </label>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Share Box</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#shareBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="shareBanner">
+                    <div class="form_container">
+                        <form [formGroup]="shareBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="shareImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('shareBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('shareBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="shareButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="shareButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'shareBanner')" hidden  >
+                                    </label>
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'shareBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="shareButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('shareBanner')" [disabled]="shareButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="shareButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Your Money Your Choice</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#yourMoneyBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="yourMoneyBanner">
+                    <div class="form_container">
+                        <form [formGroup]="yourMoneyBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="yourMoneyImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('yourMoneyBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right" >
+                                            <a class="view_link" (click)="viewerOpenFunction('yourMoneyBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="yourMoneyButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="yourMoneyButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'yourMoneyBanner')" hidden  >
+                                    </label>
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'yourMoneyBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="yourMoneyButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('yourMoneyBanner')" [disabled]="yourMoneyButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="yourMoneyButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header 2</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerSecond">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Paragraph</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <textarea rows="3" placeholder="" formControlName="paragraphContent"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                         
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">About Us</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#aboutUsBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="aboutUsBanner">
+                    <div class="form_container">
+                        <form [formGroup]="aboutUsBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="aboutUsImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('aboutUsBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('aboutUsBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="aboutUsButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="aboutUsButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'aboutUsBanner')" hidden  >
+                                    </label>
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'aboutUsBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="aboutUsButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('aboutUsBanner')" [disabled]="aboutUsButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="aboutUsButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header 2</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerSecond">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Paragraph</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <textarea rows="3" placeholder="" formControlName="paragraphContent"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Button Text</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="Know More" formControlName="ButtonText">
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">How it work</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#howitwork">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="howitwork">
+                    <div class="form_container">
+                        <form [formGroup]="howItWorkBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Big Video</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="bigVideo">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-browse" (click)="uploadVideo('bigVideo')">Upload</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Small Video-1</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="smallVideoOne">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-browse" (click)="uploadVideo('smallVideoOne')">Upload</button>
+
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Small Video-2</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="smallVideoTwo">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-browse" (click)="uploadVideo('smallVideoTwo')">Upload</button>
+
+                                </div>
+                            </div>
+                            <div class="row pt-2 mt-3 mb-3">
+                                <div class="col-md-4">
+                                    <p class="video_title">Big Video</p>
+                                    <div style="overflow:hidden;position: relative;">
+                                        <iframe allowFullScreen="allowFullScreen"
+                                            [src]="bigVideo" 
+                                            height="180" allowtransparency="true" frameborder="0" scrolling="no">
+                                        </iframe>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <i class="fa fa-trash" (click)="deleteVideo('bigVideo')"></i>
+                                        </div>
+                                        <!-- <div class="col text-right" >
+                                            <a class="view_link1">View</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="video_title">Small Video-1</p>
+                                    <div style="overflow:hidden;position: relative;">
+                                        <iframe allowFullScreen="allowFullScreen"
+                                        [src]="smallVideo1" 
+                                            height="180" allowtransparency="true" frameborder="0" scrolling="no">
+                                        </iframe>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <i class="fa fa-trash" (click)="deleteVideo('smallVideo1')"></i>
+                                        </div>
+                                        <!-- <div class="col text-right">
+                                            <a class="view_link1">View</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="video_title">Small Video-2</p>
+                                    <div style="overflow:hidden;position: relative;">
+                                        <iframe allowFullScreen="allowFullScreen"
+                                        [src]="smallVideo2" 
+                                            height="180" allowtransparency="true" frameborder="0" scrolling="no">
+                                        </iframe>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <i class="fa fa-trash" (click)="deleteVideo('smallVideo2')"></i>
+                                        </div>
+                                        <!-- <div class="col text-right" >
+                                            <a class="view_link1">View</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Some Features</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#someFeatureBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="someFeatureBanner">
+                    <div class="form_container">
+                        <form [formGroup]="someFeatureBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Heading-1</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTitleOne">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Paragraph</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="paragraphOne"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Heading-2</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTitleTwo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Paragraph</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="paragraphTwo"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Heading-3</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTitleThree">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Paragraph</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="paragraphThree"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Heading-4</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTitleFour">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Paragraph</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="paragraphFour"></textarea>
+                                </div>
+
+                            </div>
+                         
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">About Seed App</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#aboutSeedBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="aboutSeedBanner">
+                    <div class="form_container">
+                        <form [formGroup]="aboutSeedBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="aboutSeedImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('aboutSeedBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('aboutSeedBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="aboutSeedButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="aboutSeedButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'aboutSeedBanner')" hidden  >
+                                    </label>
+                                    <!-- <label class="btn btn-browse">
+                                        Browse
+                                        <input type="file" accept="image/*" 
+                                            (change)="readURL($event, 'aboutSeedBanner')" hidden>
+                                    </label>
+                                    <button type="submit"
+                                        [ngClass]="aboutSeedButton ? 'btn btn-upload-disabled cursor-pointer-not-allowed' : 'btn btn-upload' "
+                                        (click)="imageUpload('aboutSeedBanner')" [disabled]="aboutSeedButton">
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 "
+                                            *ngIf="aboutSeedButton" style="height:1rem; width:1rem"></i>
+                                        Upload
+                                    </button> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Text 1</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTextOne">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Text 2</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTextTwo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Text 3</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTextThree">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Text 4</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="SubTextFour">
+                                </div>
+                            </div>
+                         
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Client Words</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#clientWordBanner">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="clientWordBanner">
+                    <div class="form_container">
+                        <form [formGroup]="clientWordBanner">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="" formControlName="headerTitle">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" placeholder="" formControlName="SubTitle"></textarea>
+                                </div>
+                                <div class="col-md-2 img_class">
+                                    <img [src]="clientWordImage" class="dollar_img">
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('clientWordBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('clientWordBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row image_row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Header Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="clientWordButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="clientWordButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'clientWordBanner')" hidden  >
+                                    </label>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Testimony 1</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <!-- <input type="text" placeholder="" formControlName="SubTextOne"> -->
+                                    <select class="form-control input-field cursor-pointer" formControlName="TestimonyOne" #testOne (change)='onOptionsSelected(testOne.value, "TestimonyOne")'>
+                                        <option value="" disabled selected hidden>Select Duration</option>
+                                        <option [value]="entry.id" *ngFor="let entry of testimoneyList;">{{entry.username}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Testimony 2</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="form-control input-field cursor-pointer" formControlName="TestimonyTwo" #testTwo (change)='onOptionsSelected(testTwo.value, "TestimonyTwo")'>
+                                        <option value="" disabled selected hidden>Select Duration</option>
+                                        <option [value]="entry.id" *ngFor="let entry of testimoneyList;">{{entry.username}}</option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="" formControlName="SubTextTwo"> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Testimony 3</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="form-control input-field cursor-pointer" formControlName="TestimonyThree" #testThree (change)='onOptionsSelected(testThree.value,"TestimonyThree")'>
+                                        <option value="" disabled selected hidden>Select Duration</option>
+                                        <option [value]="entry.id" *ngFor="let entry of testimoneyList;">{{entry.username}}</option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="" formControlName="SubTextThree"> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Testimony 4</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="form-control input-field cursor-pointer" formControlName="TestimonyFour" #testFour (change)='onOptionsSelected(testFour.value, "TestimonyFour")'>
+                                        <option value="" disabled selected hidden>Select Duration</option>
+                                        <option [value]="entry.id" *ngFor="let entry of testimoneyList;">{{entry.username}}</option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="" formControlName="SubTextFour"> -->
+                                </div>
+                            </div>
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="testimoni_card1">
+                <div class="row p-4 row_class">
+                    <div class="col text-left">
+                        <p class="testimony_subtitle">Footer</p>
+                    </div>
+                    <div class="col text-right right_icn_class" data-toggle="collapse" data-target="#footer">
+                        <span><i class="fa fa-angle-up add_icn"></i></span>
+                    </div>
+                </div>
+                <div class="p-4 collapse" id="footer">
+                    <div class="form_container">
+                        <form [formGroup]="footerBanner">
+                            
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Sub Title</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea rows="3" formControlName="SubTitle" ></textarea>
+                                </div>
+                                <div class="col-md-2 img_class mt-1 mb-0">
+                                    <img [src]="footerImage" class="dollar_img">
+                                    <!-- <div class="row">
+                                        <div class="col text-left" (click)="deleteImage('footerBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link">View</a>
+                                        </div>
+                                    </div> -->
+                                    <div class="row mt-2">
+                                        <div class="col text-left" (click)="deleteImage('footerBanner')">
+                                            <i class="fa fa-trash"></i>
+                                        </div>
+                                        <div class="col text-right">
+                                            <a class="view_link" (click)="viewerOpenFunction('footerBanner')">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row mt-n4">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Logo Image</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Browse" formControlName="imageBrowser">
+                                    <p class="image_note">Image Size<span style="color: black;"> (ex.: 390*250px)</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label [ngClass]="footerButton ? 'btn btn-browse-disabled cursor-pointer-not-allowed' : 'btn btn-browse' ">
+
+                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="footerButton"  style="height:1rem; width:1rem"></i>
+                                        Browse
+                                         <input type="file" accept="image/*"   (change)="readURL($event, 'footerBanner')" hidden  >
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Privacy Policy</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text"  placeholder="Privacy Policy" formControlName="SubHeadPrivacy">
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" class="input_field2" placeholder="www.link.com" formControlName="SubTextPrivacy">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Terms & Conditions</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text"  placeholder="Terms & Conditions" formControlName="SubHeadCondition">
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" class="input_field2" placeholder="www.link.com" formControlName="SubTextCondition">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="label_field" for="">Company Brochure</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text"  placeholder="Download Company Brochure" formControlName="SubHeadBochure">
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" class="input_field2" placeholder="www.link.com" formControlName="SubTextBochure">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mt-4 row ml-n4">
+            <div class="col text-left">
+                <button class="btn-reset" (click) = "resetForm()">Reset</button>
+                <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="saveContent()"
+                    [disabled]="loadButton">
+                    <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"
+                        style="height:1rem; width:1rem"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

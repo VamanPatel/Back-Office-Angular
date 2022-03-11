@@ -1,0 +1,832 @@
+<div class="bg-main">
+  <div class="container">
+    <div class="row">
+      <h3 class="cust_title">Info Management</h3>
+    </div>
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+          <li class="breadcrumb-item">
+            <a class="breadcrumb_link">Info Management</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Pages</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row border-top"></div>
+    <div class="row">
+      <div class="tab_content">
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink>Desktop</a>
+            <ng-template ngbNavContent>
+              <div class="container">
+                <div class="row">
+                  <div class="overview_card">
+                    <div class="row">
+                      <div class="col">
+                        <p class="card_title">Total Pages(15)</p>
+                      </div>
+                      <div class="col text-right">
+                        <div
+                          ngbDropdown
+                          placement="bottom-right"
+                          class="d-inline-block"
+                        >
+                          <button
+                            class="btn btn-outline-primary"
+                            id="dropdownBasic2"
+                            ngbDropdownToggle
+                          >
+                            Sort
+                          </button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                            <button ngbDropdownItem>Ascending</button>
+                            <button ngbDropdownItem>Descending</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table class="table table-responsive">
+                      <thead>
+                        <tr>
+                          <th scope="col">Page Name</th>
+                          <th scope="col">Page Group</th>
+                          <th scope="col">Last Updated</th>
+                          <th scope="col">Created On</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Sort</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Home Page</td>
+                          <td>Home</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/T-Bills</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Bonds</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Mutual Funds</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Shares</td>
+                          <td>Shares</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sell</td>
+                          <td>Home Page</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sell/T-Bills</td>
+                          <td>Sell</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>Mobile</a>
+            <ng-template ngbNavContent>
+              <div class="container">
+                <div class="row">
+                  <div class="overview_card">
+                    <div class="row">
+                      <div class="col">
+                        <p class="card_title">Total Pages(15)</p>
+                      </div>
+                      <div class="col text-right">
+                        <div
+                          ngbDropdown
+                          placement="bottom-right"
+                          class="d-inline-block"
+                        >
+                          <button
+                            class="btn btn-outline-primary"
+                            id="dropdownBasic2"
+                            ngbDropdownToggle
+                          >
+                            Sort
+                          </button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                            <button ngbDropdownItem (click)="sorting('ASC')">
+                              Ascending
+                            </button>
+                            <button ngbDropdownItem (click)="sorting('DESC')">
+                              Descending
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table class="table table-responsive">
+                      <thead>
+                        <tr>
+                          <th scope="col">Page Name</th>
+                          <th scope="col">Page Group</th>
+                          <th scope="col">Last Updated</th>
+                          <th scope="col">Created On</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Sort</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Home Page</td>
+                          <td>Home</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/T-Bills</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Bonds</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Mutual Funds</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Shares</td>
+                          <td>Shares</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sell</td>
+                          <td>Home Page</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sell/T-Bills</td>
+                          <td>Sell</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>Product</a>
+            <ng-template ngbNavContent>
+              <div class="container">
+                <div class="row">
+                  <div class="overview_card">
+                    <div class="row">
+                      <div class="col">
+                        <p class="card_title">Total Pages(15)</p>
+                      </div>
+                      <div class="col text-right">
+                        <div
+                          ngbDropdown
+                          placement="bottom-right"
+                          class="d-inline-block"
+                        >
+                          <button
+                            class="btn btn-outline-primary"
+                            id="dropdownBasic2"
+                            ngbDropdownToggle
+                          >
+                            Sort
+                          </button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                            <button ngbDropdownItem (click)="sorting('ASC')">
+                              Ascending
+                            </button>
+                            <button ngbDropdownItem (click)="sorting('DESC')">
+                              Descending
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table class="table table-responsive">
+                      <thead>
+                        <tr>
+                          <th scope="col">Page Name</th>
+                          <th scope="col">Page Group</th>
+                          <th scope="col">Last Updated</th>
+                          <th scope="col">Created On</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Sort</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Home Page</td>
+                          <td>Home</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/T-Bills</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Bonds</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Mutual Funds</td>
+                          <td>Buy</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Buy/Shares</td>
+                          <td>Shares</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sell</td>
+                          <td>Home Page</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sell/T-Bills</td>
+                          <td>Sell</td>
+                          <td>23/08/2021</td>
+                          <td>23/08/2021</td>
+                          <td>
+                            <button class="btn btn-status">Live</button>
+                          </td>
+                          <td>
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="['/info-management/web']"
+                              ><i
+                                class="fa fa-eye icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">View</span></span
+                            >
+                            <span
+                              class="cursor-pointer"
+                              [routerLink]="[
+                                '/info-management/edit-info-management'
+                              ]"
+                              ><i
+                                class="fa fa-pencil-square-o icn_img"
+                                aria-hidden="true"
+                              ></i
+                              ><span class="icn_title">Edit</span></span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

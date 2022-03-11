@@ -1,0 +1,204 @@
+.cust_title {
+    color: #212529;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.bg-main {
+    background-color: #F8F8F8;
+    height: auto;
+    margin-bottom: 30px;
+}
+.breadcrumb {
+    padding: 18px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: 0px;
+    text-align: left;
+    margin-top: -27px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.breadcrumb_link {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb_link:hover {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb>.active {
+    color: #212529;
+}
+.breadcrumb>li+li:before {
+    padding: 0px 8px !important;
+    color: #A7AFB7 !important;
+    content: "\002F" !important;
+    margin-left: -8px;
+}
+.border-top {
+    border-top: 2px solid #dee2e6 !important;
+    margin-top: -25px;
+}
+.overview_card {
+    box-shadow: 0px 0px 0px #5A71D01B;
+    border: 1px solid #E4E4E4;
+    height: auto;
+    width: 100%;
+    margin-top: 20px;    
+    background-color: #fff;
+    padding: 15px;
+}
+.class_left {
+    margin-top: -15px;
+}
+.card_title {
+    padding: 10px;
+    font-size: 20px;
+    padding-bottom: 0px;
+    color: #212529;
+    font-weight: 600;
+}
+.text-label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 7px;
+}
+.select-dropdown,
+.select-dropdown * {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	box-sizing: border-box;
+    cursor: pointer;
+    /* color: #000; */
+}
+.select-dropdown {
+	position: relative;
+	background-color: #fff;
+    border: 1px solid #E6E6E6;
+	border-radius: 4px;
+}
+.select-dropdown select {
+	font-size: 1rem;
+	font-weight: normal;
+	max-width: 100%;
+	padding: 8px 24px 8px 10px;
+	border: none;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.select-dropdown select:active, .select-dropdown select:focus {
+	outline: none;
+	box-shadow: none;
+}
+.select-dropdown:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	width: 0;
+	height: 0;
+	margin-top: -2px;
+	border-top: 5px solid #000;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+}
+.fa-lock {
+    display: inline-block;
+    border-radius: 50px;
+    background-color: #E83F3F;
+    padding: 9px 12px;
+    color: white;
+    border: 2px solid #E83F3F;
+    margin-left: 15px;
+}
+.icn_text {
+    color: #212529;
+    font-size: 25px;
+    margin-left: 8px;
+    font-weight: 600;
+}
+.border-top1 {
+    border-top: 2px solid #dee2e6 !important;
+    margin-top: 5px;
+}
+
+input[type="date"] {
+    position: relative;
+    cursor: pointer;
+}
+input[type="date"]:after {
+    font-family: "FontAwesome";
+    font-weight: 900; 
+    content: "\f073";
+    color: #212529;
+    padding: 0 5px;
+    cursor: pointer;
+
+}
+input[type="date"]:hover:after {
+    color: #212529;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+    cursor: pointer;
+}
+input[type="date"]::-webkit-inner-spin-button {
+    z-index: 1;
+}
+input[type="date"]::-webkit-clear-button {
+     z-index: 1;
+}
+.fa-exchange {
+    display: inline-block;
+    border-radius: 50px;
+    background-color: #87B515;
+    padding: 11px 11px;
+    color: white;
+    border: 2px solid #87B515;
+    margin-left: 15px;
+}
+.btn-reset {
+    border: 1px solid #333;
+    background-color: transparent;
+    padding: 5px 20px;
+    margin-right: 10px;
+}
+
+.btn-save {
+    background-color: #212529;
+    border: 1px solid #212529;
+    padding: 5px 20px;
+    color: #fff;
+}
+
+.btn-dropdown {
+    border: 1px solid #e4e4e4;
+    border-right: none;
+    margin-right: -5px;
+    background-color: #E2E8F0;
+    width: 120px;
+    height: 38px;
+}
+.text_field {
+    margin-left: -45px;
+}
+.btn-percent {
+    border: 1px solid #e4e4e4;
+    background-color: #E2E8F0;
+    border-right: none;
+    margin-right: -5px;
+
+}

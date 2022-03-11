@@ -1,0 +1,30 @@
+<div class="sidenav">
+    <img src="assets/onboarding/logo.png" routerLink ="/" class="p-4 cursor-pointer">
+    <div class="login-main-text pl-4">
+       <div class="font-size-40px">
+          Welcome to SEED
+       </div>
+       <div class="font-size-22px color-text text-color-grey mt-2 letter-spacing-0-21px">
+          Lorem ipsum dolor sit amet, consetetur.
+       </div>
+    </div>
+ </div>
+ <div class="main">
+    <div class="ml-3 login-card-width">
+       <div class="login-form login-form-ml-5">
+          
+          <div class="row margin-left-n8 mr-0">
+            <div class="col-6 p-0">
+                <img src="assets/onboarding/user_icon.png" class="user_icon_img">
+            </div>
+            <div class="col-6 text-right">
+               <i class="fa fa-home icn_img" routerLink = '/admin/login'></i>
+            </div>
+          </div>
+          <div class="font-size-30px mt-3"><b>{{messageObj.contentHeading}}</b></div>
+          <div class="font-size-16px color-00000099 mt-4" id="customContent"></div>
+          <button type="submit" class="button-width-128 mt-4 mb-4" (click)="onConfirm()">{{messageObj.button1}}</button>
+ 
+       </div>
+    </div>
+ </div>

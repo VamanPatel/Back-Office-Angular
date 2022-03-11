@@ -1,0 +1,88 @@
+<div class="bg-main">
+    <div class="container">
+      <div class="row">
+        <h3 class="cust_title">Admin Management</h3>
+      </div>
+      <div class="row">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Admin Management</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row border-top"></div>
+      <div class="text-right">
+          <p>Actions : 
+              <span (click)="addUser()"><img src="assets/cust_details/add_user.png" alt="Add User" class="add_user_img"></span>
+              <span (click)="reLoad()"><i class="fa fa-refresh"></i></span>
+          </p>
+      </div>
+      <div class="row">
+          <div class="admin_card">
+            <!-- <p class="card_title">Admin({{totalSize}})</p> -->
+            <div class="row">
+              <div class="col">
+                <p class="card_title">Admin({{totalSize}})</p>
+              </div>
+              <div class="col text-right">
+                <div ngbDropdown placement="bottom-right" class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Sort</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                    <button ngbDropdownItem (click)="sorting('ASC')">Ascending</button>
+                    <button ngbDropdownItem (click)="sorting('DESC')">Descending</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <!-- <th scope="col"></th> -->
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Last Login</th>
+                  <th scope="col">Active Since</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Sort</th>
+
+                </tr>
+              </thead>
+              <tbody *ngIf="!noData">
+                <tr *ngFor = "let detail of adminListing">
+                  <td>{{detail.name || '-'}}</td>
+                  <td>{{detail.email || '-'}}</td>
+                  <td>{{detail.lastLoginAt || '-'}}</td>
+                  <td>{{detail.activeSince || '-'}}</td>
+                  <td *ngIf="detail.status === 'INACTIVE'">
+                      <button class="btn btn-status">Deactive</button>
+                  </td>
+                  <td *ngIf="detail.status === 'INACTIVE'" class="text-center">
+                    <span class="icn_title">-</span>
+                    
+                </td>
+                  <td *ngIf="detail.status === 'ACTIVE'" >
+                    <button class="btn btn-status1 text-success">Active</button>
+                  </td>
+                  <td *ngIf="detail.status === 'ACTIVE'">
+                      <span *ngIf = "loggedId != detail.id" (click)="deleteUser(detail.id)" class="cursor-pointer"><i  class="fa fa-trash icn_img cursor-pointer" aria-hidden="true"></i><span class="icn_title cursor-pointer">Delete</span></span>
+                      <span *ngIf = "loggedId === detail.id" class="cursor-pointer"><span class="icn_title">- &nbsp;<span class="ml-5"></span> </span></span>
+                      <span (click)="userInfo(detail.id)" class="cursor-pointer"><i  class="fa fa-eye icn_img cursor-pointer" aria-hidden="true"></i><span class="icn_title cursor-pointer">View</span></span>
+                      <span (click)="editUser(detail.id)" class="cursor-pointer"><i  class="fa fa-pencil-square-o icn_img cursor-pointer" aria-hidden="true"></i><span class="icn_title cursor-pointer">Edit</span></span>
+                  </td>
+                </tr>
+              </tbody>
+              
+            </table>
+            <!-- NO DATA SECTION -->
+            <div class="no_data_content text-center" *ngIf="noData">
+              <div class="mt-5 mb-5">
+                <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                <p class="nodata_title">No Data Found</p>
+              </div>
+            </div>
+            <ngb-pagination *ngIf="showPagination" class="d-flex justify-content-end mt-3" (pageChange)="onchangePagination($event)" [collectionSize]="totalSize" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>          </div>
+            
+          </div>
+    </div>
+</div>

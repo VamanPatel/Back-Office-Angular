@@ -1,0 +1,729 @@
+<div class="bg-main">
+  <div class="container">
+    <div class="row">
+      <h3 class="cust_title">Customers</h3>
+    </div>
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+          <li class="breadcrumb-item "><a class="breadcrumb_link">Customers</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Customers Info</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row border-top"></div>
+    <div class="row">
+      <div class="tab_content">
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink (click)=getOverInvestmentView()>General Info</a>
+            <ng-template ngbNavContent>
+              <div class="navtab_content">
+                <div class="row mt-4">
+                  <div class="col-md-2">
+                    
+                    <img *ngIf="customer.profilePic"  src="{{ customer.profilePic }}" alt="Profile" class="img-responsive avatar_img">
+                    <img *ngIf="customer.profilePic == ''"  src="assets/cust_details/avatar.png" alt="Profile" class="img-responsive avatar_img">
+                    <p class="avatar_title">Passport Photo</p>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="detail_card">
+                      <div class="row">
+                        <div class="col-md-6 border-right">
+                          <div class="clearfix">&nbsp;</div>
+                          <span class="label label-success" *ngIf="customer.status == 'ACTIVE' ">ACTIVATED</span>
+                          <span class="label label-danger" *ngIf="customer.status == 'INACTIVE' ">DEACTIVATED</span> 
+                          <span class="label label-primary" *ngIf="customer.status == 'PENDING' ">NEW</span>                        
+                         
+                          <span class="date_content">Last Login: {{ customer.lastLoginAt || '-' }}</span>
+                          <div class="form_content">                            
+                            <form>
+                              <label for="" class="form_label mt-4">Full Name</label>
+                              <p class="form_name">{{ customer.name || '-' }}</p>
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <label for="" class="form_label">Gender</label>
+                                  <p class="form_name1">{{ customer.gender || '-' }}</p>
+                                  <label for="" class="form_label">ID Type</label>
+                                  <p class="form_name1">{{ customer.idType || '-' }}</p>
+                                  <label for="" class="form_label">Phone Number</label>
+                                  <p class="form_name1">{{ customer.mobile || '-' }}</p>
+                                  <label for="" class="form_label">Email Address</label>
+                                  <p class="form_name1">{{ customer.email || '-' }}</p>
+                                </div>
+                                <div class="col-md-7">
+                                  <label for="" class="form_label">Date of Birth</label>
+                                  <p class="form_name1">{{ customer.dob || '-' }}</p>
+                                  <label for="" class="form_label">ID Number</label>
+                                  <p class="form_name1">{{ customer.idNumber || '-' }}</p>
+                                  <div class="verify_content pt-2 pl-4">
+                                    <img src="assets/cust_details/shield_verify.png" class="verify_img">
+                                    <span class="verify_title"> Verify</span>
+                                  </div>
+                                  <div class="verify_content pt-5 pl-4">
+                                    <img src="assets/cust_details/shield_verify.png" class="verify_img">
+                                    <span class="verify_title"> Verify</span>
+                                  </div>
+                                </div>
+                              </div>       
+                              
+                              <button data-toggle="modal" data-target="#deactivateModal" data-whatever="@mdo" *ngIf="customer.status == 'ACTIVE' " class="btn btn-deactivated" >DEACTIVATE ACCOUNT</button>
+                              <button data-toggle="modal" data-target="#activateModal" data-whatever="@mdo" *ngIf="customer.status == 'INACTIVE' " class="btn btn-activated" >ACTIVATE ACCOUNT</button>               
+
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <p class="chart_title">Investment Overview</p>
+                          <div *ngIf="!noData" id="chart-investment-overview" style="min-height: 300px; margin-right: 15px;"> </div>
+
+                          
+                            <div class="col-md-12">
+                              <div class="row" *ngIf="!noData" >
+                              <div class="col-md-6 totInvest" >
+                                <label>
+                                  Total Earning
+                                </label>
+                                <p>{{ totEarning }}</p>
+    
+                              </div>
+                              <div class="col-md-6 totInvest" >
+                                <label>
+                                  Total Investment
+                                </label>
+                                <p>{{ totInvestment }}</p>
+                              </div>
+                            </div>                            
+                          </div>
+                          
+                          
+                          <!-- NO DATA SECTION -->
+                          <div class="no_data_content" *ngIf="noData">
+                            <div class="mt-5 mb-5">
+                              <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                              <p class="nodata_title">No Data Found</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>Documents</a>
+            <ng-template ngbNavContent>
+              <div class="navtab_content">
+                <div class="row mt-4">
+                  <div class="col-md-2">
+                    <!-- <img src="assets/cust_details/avatar.png" alt="Profile" class="img-responsive avatar_img"> -->
+                    <img *ngIf="customer.profilePic" src="{{ customer.profilePic }}" alt="Profile" class="img-responsive avatar_img">
+                    <img *ngIf="customer.profilePic == ''"  src="assets/cust_details/avatar.png" alt="Profile" class="img-responsive avatar_img">
+                    <p class="avatar_title">Passport Photo</p>
+                    <button class="btn btn-clear"><i class="fa fa-clock-o"></i> Photo Not Clear</button>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="detail_card">
+                      <div class="row">
+                        <div class="col-md-6 border-right">
+                          <!-- <button class="btn btn-activated" *ngIf="customer.status == 'ACTIVE' ">ACTIVATED</button>
+                          <button class="btn btn-deactivated" *ngIf="customer.status == 'INACTIVE' ">DEACTIVATED</button>
+                          <button class="btn btn-new" *ngIf="customer.status == 'PENDING' ">NEW</button> 
+                          <span class="date_content">  Login: {{ customer.lastLoginAt || '-' }}</span>-->
+                          <div class="form_content">
+                            
+                            <form>
+                              <label for="" class="form_label mt-4">Full Name</label>
+                              <p class="form_name">{{ customer.name || '-' }}</p>
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <label for="" class="form_label">Gender</label>
+                                  <p class="form_name1">{{ customer.gender || '-' }}</p>
+                                  <label for="" class="form_label">ID Type</label>
+                                  <p class="form_name1">{{ customer.idType || '-' }}</p>
+                                  <label for="" class="form_label">Phone Number</label>
+                                  <p class="form_name1">{{ customer.mobile || '-' }}</p>
+                                  <label for="" class="form_label">Email Address</label>
+                                  <p class="form_name1">{{ customer.email || '-' }}</p>
+                                </div>
+                                <div class="col-md-7">
+                                  <label for="" class="form_label">Date of Birth</label>
+                                  <p class="form_name1">{{ customer.dob || '-' }}</p>
+                                  <label for="" class="form_label">ID Number</label>
+                                  <p class="form_name1">{{ customer.idNumber || '-' }}</p>
+                                  <div class="verify_content pt-2 pl-4">
+                                    <img src="assets/cust_details/shield_verify.png" class="verify_img">
+                                    <span class="verify_title"> Verify</span>
+                                  </div>
+                                  <div class="verify_content pt-5 pl-4">
+                                    <img src="assets/cust_details/shield_verify.png" class="verify_img">
+                                    <span class="verify_title"> Verify</span>
+                                  </div>
+                                </div>
+                              </div>       
+                              
+                              <!-- <button data-toggle="modal" data-target="#deactivateModal" data-whatever="@mdo" *ngIf="customer.status == 'ACTIVE' " class="btn btn-deactivated" >DEACTIVATE ACCOUNT</button>
+                              <button data-toggle="modal" data-target="#activateModal" data-whatever="@mdo" *ngIf="customer.status == 'INACTIVE' " class="btn btn-activated" >ACTIVATE ACCOUNT</button>                -->
+
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <p class="chart_title">Address Proof</p>
+                          <label for="" class="form_label1">Utility Bill</label>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="doc_container">
+                                <img  *ngIf="addressData.addressUrl " src="{{ addressData.addressUrl }}" alt="Document" class="doc_img">
+                                <div class="overlay"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                              </div>
+                              <p class="file_name mt-3">Uploaded on {{ addressData.addressUpdatedAt || '-'  }}</p>
+                            </div>
+                            <!-- <div class="col-md-6">
+                              <img src="assets/cust_details/doc.jpg" alt="Document" class="doc_img">
+                              <p class="file_name mt-3" style="margin-left: 3px;">Uploaded on 20-02-2021</p>
+                            </div> -->
+                          </div>
+                          <div *ngIf="addressData">
+                            <div *ngIf="addressData.kycData">
+                              <p *ngIf="addressData.kycData.details" class="chart_title">KYC Input</p>
+                              <label *ngIf="addressData.kycData.details" for="" class="form_label1">From Bace Group</label>
+                              <div class="row mb-3" *ngIf="addressData.kycData.details">
+                                <div class="col-md-4">
+                                  <div class="detail_title">
+                                    <p class="detail_title">Name :</p>
+                                    <p class="detail_title">Passport No :</p>                                  
+                                  </div>
+                                </div>
+                                <div class="col-md-8">
+                                  <div class="detail_desc">                               
+                                    <p  >{{ addressData.kycData.details.FirstName + " " + addressData.kycData.details.MiddleName + " " + addressData.kycData.details.LastName }}</p>
+                                    <p > {{ addressData.kycData.details.PassportNo || '-' }}</p>                                
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>Account Details</a>
+            <ng-template ngbNavContent>
+              <div class="navtab_content">
+                <div class="row mt-4">
+                  <div class="col-md-2">
+                    <img *ngIf="customer.profilePic" src="{{ customer.profilePic }}" alt="Profile" class="img-responsive avatar_img">
+                    <img *ngIf="customer.profilePic == ''"  src="assets/cust_details/avatar.png" alt="Profile" class="img-responsive avatar_img">
+                    <p class="avatar_title">Passport Photo</p>
+                    <button class="btn btn-clear"><i class="fa fa-clock-o"></i> Photo Not Clear</button>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="detail_card">
+                      <div class="row">
+                        <div class="col-md-6 border-right">
+                          <!-- <button class="btn btn-activated" *ngIf="customer.status == 'ACTIVE' ">ACTIVATED</button>
+                          <button class="btn btn-deactivated" *ngIf="customer.status == 'INACTIVE' ">DEACTIVATED</button>
+                          <button class="btn btn-new" *ngIf="customer.status == 'PENDING' ">NEW</button> 
+                          <span class="date_content">Last Login: {{ customer.lastLoginAt || '-' }}</span>-->
+                          <div class="form_content">
+                            
+                            <form>
+                              <label for="" class="form_label mt-4">Full Name</label>
+                              <p class="form_name">{{ customer.name || '-' }}</p>
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <label for="" class="form_label">Gender</label>
+                                  <p class="form_name1">{{ customer.gender || '-' }}</p>
+                                  <label for="" class="form_label">ID Type</label>
+                                  <p class="form_name1">{{ customer.idType || '-' }}</p>
+                                  <label for="" class="form_label">Phone Number</label>
+                                  <p class="form_name1">{{ customer.mobile || '-' }}</p>
+                                  <label for="" class="form_label">Email Address</label>
+                                  <p class="form_name1">{{ customer.email || '-' }}</p>
+                                </div>
+                                <div class="col-md-7">
+                                  <label for="" class="form_label">Date of Birth</label>
+                                  <p class="form_name1">{{ customer.dob || '-' }}</p>
+                                  <label for="" class="form_label">ID Number</label>
+                                  <p class="form_name1">{{ customer.idNumber || '-' }}</p>
+                                  <div class="verify_content pt-2 pl-4">
+                                    <img src="assets/cust_details/shield_verify.png" class="verify_img">
+                                    <span class="verify_title"> Verify</span>
+                                  </div>
+                                  <div class="verify_content pt-5 pl-4">
+                                    <img src="assets/cust_details/shield_verify.png" class="verify_img">
+                                    <span class="verify_title"> Verify</span>
+                                  </div>
+                                </div>
+                              </div>       
+                              
+                              <!-- <button data-toggle="modal" data-target="#deactivateModal" data-whatever="@mdo" *ngIf="customer.status == 'ACTIVE' " class="btn btn-deactivated" >DEACTIVATE ACCOUNT</button>
+                              <button data-toggle="modal" data-target="#activateModal" data-whatever="@mdo" *ngIf="customer.status == 'INACTIVE' " class="btn btn-activated" >ACTIVATE ACCOUNT</button>                -->
+
+                            </form>
+                          </div>
+                        </div>
+                     
+                        <div class="col-md-6">
+                          <p class="chart_title">Saved Payment Method</p>
+                          <div *ngFor="let payment of paymentData | keyvalue">
+                            <div *ngIf="payment.key == 'SEED_WALLET'"  class="row mr-0 p-2 mt-2 border-bottom">
+                              <div class="col-md-6">
+                                <div class="content_seed mt-1">
+                                  <img src="assets/cust_details/wallet.png" class="payment_icn">
+                                  <span class="ml-2 wallet_title">Seed Wallet</span>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <button class="btn btn-wallet float-right">GHS {{ payment.value.balance }}</button>
+                              </div>
+                            </div>
+
+                            <div *ngIf="payment.key == 'MOBILE_WALLET'" >
+                              <div *ngFor="let paymentMobile of payment.value"  class="row mr-0 p-2 border-bottom">
+
+                              
+                                  <div class="col-md-6">
+                                    <div class="content_seed mt-1">
+                                      <img src="assets/cust_details/payment.png" class="payment_icn">
+                                      <span class="ml-2 wallet_title">Mobile Money</span>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <p style="font-size: 14px;" class="mt-2 float-right">Mobile No: <span class="text-primary">{{ paymentMobile.msisdn }}</span></p>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div *ngIf="payment.key == 'BANK_ACCOUNT'" >
+                              <div *ngFor="let paymentBank of payment.value" class="row mr-0 p-2 border-bottom">
+                                <div class="col-md-6">
+                                  <div class="content_seed mt-1">
+                                    <img src="assets/cust_details/bank.png" class="payment_icn">
+                                    <span class="ml-2 wallet_title">{{ paymentBank.bankName }}</span>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <p style="font-size: 15px;" class="mt-2 float-right">A/C No: <span class="text-primary">{{ paymentBank.accountNumber}}</span></p>
+                                </div>
+                              </div>
+                            </div>
+
+                            
+                          </div>
+
+ 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4">
+            <a ngbNavLink (click)="getOverView()">Portfolio</a>
+            <ng-template ngbNavContent>
+              <div class="">
+                <div class="">
+                  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+                    <ng-container ngbNavItem>
+                      <a ngbNavLink (click)="getOverView()">Overview</a>
+                      <ng-template ngbNavContent>
+                        <div class="container">
+                          <div class="row">
+                            <div class="overview_card">
+                              <div class="mt-2" style="height: 240px;" id="chart-overview" *ngIf="!noData"></div>
+                              <!-- NO DATA SECTION -->
+                              <div class="no_data_content" *ngIf="noData">
+                                <div class="mt-5 mb-5">
+                                  <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                                  <p class="nodata_title">No Data Found</p>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem>
+                      <a ngbNavLink (click)="getTbillsHolding()">T-Bills</a>
+                      <ng-template ngbNavContent>
+                        <div class="container">
+                          <div class="row">
+                            <div class="tbills_card">
+                              <p class="card_title">T-Bills</p>
+                              <table class="table table-responsive" *ngIf="!noTbill">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Issue Date</th>
+                                    <th scope="col">Maturity Date</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Maturity Value</th>
+                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let tbillDetail of tbillsListing">
+                                    <th scope="row">
+                                      <img src="assets/cust_details/invoice.png" alt="Invoice" class="invoice_img">
+                                    </th>
+                                    <td>{{tbillDetail.type}}</td>
+                                    <td>{{tbillDetail.purchase}}</td>
+                                    <td>{{tbillDetail.maturity}}</td>
+                                    <td>GHS {{tbillDetail.cost}}</td>
+                                    <td>GHS {{tbillDetail.maturityValue}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <ngb-pagination *ngIf="tbillPagination" class="d-flex justify-content-end mt-3"
+                                (pageChange)="onchangePagination($event,'tbill')" [collectionSize]="tbillTotal" [(page)]="tbillPage"
+                                [pageSize]="tbillSize"></ngb-pagination>
+                              <!-- NO DATA SECTION -->
+                              <div class="no_data_content" *ngIf="noTbill">
+                                <div class="mt-5 mb-5">
+                                  <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                                  <p class="nodata_title">No Data Found</p>
+                                </div>
+                              </div>
+                              <div class="total_desc text-right" *ngIf="!noTbill">
+                                <p class="total_content mr-3">Total Holding :
+                                  <span class="total_subcontent ml-3 mr-3"> <span style="opacity: .8;">Total Cost
+                                    </span> | <b>{{tbillTotalAmount}} GHS</b></span>
+                                  <span class="total_subcontent ml-2 mr-3"> Maturity Value | <b> {{tbillTotalMaturity}} GHS</b></span>
+                                </p>
+                    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem>
+                      <a ngbNavLink (click)="getBondHolding()">Bonds</a>
+                      <ng-template ngbNavContent>
+                        <div class="container">
+                          <div class="row">
+                            <div class="tbills_card">
+                              <p class="card_title">Bonds</p>
+                              <table class="table table-responsive" *ngIf="!nobond">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Issue Date</th>
+                                    <th scope="col">Maturity Date</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Maturity Value</th>
+                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let bondDetail of bondsListing">
+                                    <th scope="row">
+                                      <img src="assets/cust_details/invoice.png" alt="Invoice" class="invoice_img">
+                                    </th>
+                                    <td>{{bondDetail.type}}</td>
+                                    <td>{{bondDetail.purchase}}</td>
+                                    <td>{{bondDetail.maturity}}</td>
+                                    <td>{{bondDetail.cost}}</td>
+                                    <td>{{bondDetail.maturityValue}}</td>
+                                  </tr>
+                    
+                                </tbody>
+                              </table>
+                              <ngb-pagination *ngIf="bondPagination" class="d-flex justify-content-end mt-3"
+                                (pageChange)="onchangePagination($event,'bond')" [collectionSize]="bondTotal" [(page)]="bondPage"
+                                [pageSize]="bondSize"></ngb-pagination>
+
+                                
+                              <div class="total_desc text-right" *ngIf="!nobond">
+                                <p class="total_content mr-3">Total Holding :
+                                  <span class="total_subcontent ml-3 mr-3"> <span style="opacity: .8;">Total Cost
+                                    </span> | <b>{{bondTotalAmount}} GHS</b></span>
+                                  <span class="total_subcontent ml-2 mr-3"> Maturity Value | <b>{{bondTotalMaturity}}
+                                      GHS</b></span>
+                                </p>
+                    
+                              </div>
+                              <!-- NO DATA SECTION -->
+                              <div class="no_data_content" *ngIf="nobond">
+                                <div class="mt-5 mb-5">
+                                  <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                                  <p class="nodata_title">No Data Found</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem>
+                      <a ngbNavLink (click)="getMutualFundHolding()">Mutual Funds</a>
+                      <ng-template ngbNavContent>
+                        <div class="container">
+                          <div class="row">
+                            <div class="tbills_card">
+                              <p class="card_title">Mutual Funds</p>
+                              <table class="table table-responsive" *ngIf="!nomutualFund">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Mutual Funds</th>
+                                    <th scope="col">Issue Date</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Current Value</th>
+                                    <th scope="col">Gain/Loss</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let mutualDetail of mutualFundsListing">
+                                    <td>{{mutualDetail.name}}</td>
+                                    <td>{{mutualDetail.purchase}}</td>
+                                    <td>GHS {{mutualDetail.cost}}</td>
+                                    <td>GHS {{mutualDetail.currValue}}</td>
+                                    <td>GHS {{mutualDetail.gainLoss}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <ngb-pagination *ngIf="mutualFundPagination" class="d-flex justify-content-end mt-3"
+                                (pageChange)="onchangePagination($event,'mutualFund')" [collectionSize]="mutualFundTotal"
+                                [(page)]="mutualFundPage" [pageSize]="mutualFundSize"></ngb-pagination>
+                              
+                              
+                                <div class="total_desc text-right" *ngIf="!nomutualFund">
+                                  <p class="total_content mr-3">Total Holding :
+                                    <span class="total_subcontent ml-3 mr-3"> <span style="opacity: .8;">Total Cost
+                                      </span> | <b>{{mutualFundTotalAmount}} GHS</b></span>
+                                    <span class="total_subcontent ml-2 mr-3"> Maturity Value |
+                                      <b>{{mutualFundTotalMaturity}} GHS</b></span>
+                                  </p>
+                      
+                                </div>
+                    
+                              <!-- NO DATA SECTION -->
+                              <div class="no_data_content" *ngIf="nomutualFund">
+                                <div class="mt-5 mb-5">
+                                  <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                                  <p class="nodata_title">No Data Found</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem>
+                      <a ngbNavLink (click)="getShareHolding()">Shares</a>
+                      <ng-template ngbNavContent>
+                        <div class="container">
+                          <div class="row">
+                            <div class="tbills_card">
+                              <p class="card_title">Shares</p>
+                              <table class="table table-responsive" *ngIf="!noshare">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Shares</th>
+                                    <th scope="col">Issue Date</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Current Value</th>
+                                    <th scope="col">Gain/Loss</th>
+                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let shareDetail of sharesListing">
+                                    <td>{{shareDetail.name}}</td>
+                                    <td>{{shareDetail.purchase}}</td>
+                                    <td>GHS {{shareDetail.cost}} </td>
+                                    <td>GHS {{shareDetail.currValue}}</td>
+                                    <td>GHS {{shareDetail.gainLoss}}</td>
+                                  </tr>
+                    
+                                </tbody>
+                              </table>
+                              <ngb-pagination *ngIf="sharePagination" class="d-flex justify-content-end mt-3"
+                                (pageChange)="onchangePagination($event,'share')" [collectionSize]="shareTotal" [(page)]="sharePage"
+                                [pageSize]="shareSize"></ngb-pagination>
+
+                                
+                              <div class="total_desc text-right" *ngIf="!noshare">
+                                <p class="total_content mr-3">Total Holding :
+                                  <span class="total_subcontent ml-3 mr-3"> <span style="opacity: .8;">Total Cost
+                                    </span> | <b>{{shareTotalAmount}} GHS</b></span>
+                                  <span class="total_subcontent ml-2 mr-3"> Maturity Value | <b>{{shareTotalMaturity}}
+                                      GHS</b></span>
+                                </p>
+                              </div>
+                    
+                              <!-- NO DATA SECTION -->
+                              <div class="no_data_content" *ngIf="noshare">
+                                <div class="mt-5 mb-5">
+                                  <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                                  <p class="nodata_title">No Data Found</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                  </nav>
+                  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                </div>
+              </div>
+
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="5">
+            <a ngbNavLink (click)="getTransactionHistory()">Transaction History</a>
+            <ng-template ngbNavContent>
+              <div class="container">
+                <div class="row">
+                  <div class="tbills_card">
+                    <div class="row">
+                      <div class="col">
+                        <p class="card_title">Transaction History</p>
+                      </div>
+                      <div class="col text-right" *ngIf="!noTransaction">
+                        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+                          <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Sort</button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                            <button ngbDropdownItem (click)="sortTransaction('ASC')">Order Date ASC</button>
+                            <button ngbDropdownItem (click)="sortTransaction('DESC')">Order Date DESC</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <table class="table table-responsive" *ngIf="!noTransaction">
+                      <thead>
+                        <tr>
+                          <th class="th_title" scope="col">Ref. No.</th>
+                          <th class="th_title" scope="col">Type</th>
+                          <th class="th_title" scope="col">Product</th>
+                          <th class="th_title" scope="col">Order Date</th>
+                          <th class="th_title" scope="col">Order Type</th>
+                          <th class="th_title" scope="col">Receive Via</th>
+                          <th class="th_title" scope="col">Account No.</th>
+                          <th class="th_title" scope="col">Amount(GHS)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let transactionDetail of transactionListing">
+                          <td>{{transactionDetail.refNo || '-'}}</td>
+                          <td>{{transactionDetail.type || '-'}}</td>
+                          <td>{{transactionDetail.name || '-'}}</td>
+                          <td>{{transactionDetail.orderDate | date:'dd/MM/yyyy' || '-'}}</td>
+                          <td>{{transactionDetail.orderType || '-'}}</td>
+                          <td>{{transactionDetail.paymentVia || '-'}}</td>
+                          <td>{{transactionDetail.paymentData.accountNo || '-'}}</td>
+                          <td
+                            [ngClass]="[transactionDetail.status === 'Settled' ? 'text-success' : '',  transactionDetail.status === 'In Progress' ? 'text-warning' : '', transactionDetail.status === 'Failed' ? 'text-danger' : '']">
+                            {{transactionDetail.amount || '-'}} GHS<br>{{transactionDetail.status || '-'}}</td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                    <!-- NO DATA SECTION -->
+                    <div class="no_data_content" *ngIf="noTransaction">
+                      <div class="mt-5 mb-5">
+                        <img src="assets/cust_details/no_data.png" alt="No Data" class="nodata_img">
+                        <p class="nodata_title">No Data Found</p>
+                      </div>
+                    </div>
+                    <ngb-pagination *ngIf="!noTransaction" class="d-flex justify-content-end mt-3" (pageChange)="onchangePagination($event, 'transaction')" [collectionSize]="transactionTotal" [(page)]="transactionPage" [pageSize]="transactionSize" [maxSize]="maxSize"></ngb-pagination>
+
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+        </ul>
+
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade deactivate-popup" id="deactivateModal" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">        
+        <button type="button" class="close" id="close1" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">        
+          <div class=""><img src="assets/cust_details/deactivate_img.png" class="d-block m-auto"></div>        
+        <h5 class="modal-title deactivate-title" >Deactivate Account</h5>
+        <p class="deactivate-reason">Reason to deactivate</p>
+        <form>
+          <div class="form-group">           
+            <select class="form-select form-control " aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="1">Reason One</option>
+              <option value="2">Reason Two</option>
+              <option value="3">Reason Three</option>
+            </select>
+          </div>         
+        </form>
+      </div>
+      <div class="modal-footer text-center">       
+        <button type="button" class="btn btn-primary btn-submit" (click)="changeCustomerStatus('deactivate')" >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade activate-popup" id="activateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" id="close2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="">
+            <img src="assets/cust_details/activate_img.png" class="d-block m-auto">
+          </div>
+        
+       
+        <h5 class="modal-title activate-title" >Activate Account</h5>
+        <p class="deactivate-reason">Reason to activate</p>
+        <form>
+          <div class="form-group">
+           
+            <select class="form-select form-control " aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer text-center">
+       
+        <button type="button" class="btn btn-primary btn-submit" (click)="changeCustomerStatus('activate')" >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

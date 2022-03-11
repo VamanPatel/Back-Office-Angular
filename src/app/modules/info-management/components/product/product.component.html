@@ -1,0 +1,225 @@
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <h3 class="cust_title">Info Management</h3>
+        </div>
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Info Management</a></li>
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row border-top"></div>
+        <div class="row">
+            <div class="tab_content">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                    <li [ngbNavItem]="1">
+                        <a ngbNavLink (click)="getProductInfo('T_BILL')">TBills</a>
+                        <ng-template ngbNavContent>
+                            <div class="container">
+                                <div class="row mt-4">
+                                    <div class="col text-left">
+                                        <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit / Products</b></a>
+                                        </p>
+                                    </div>
+                                    <!-- <div class="col text-right">
+                                        <button class="btn-reset" (click)="resetData('T_BILL')">Reset</button>
+                                       
+                                        <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('T_BILL')" [disabled]="loadButton" >
+                                            <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                            Save
+                                        </button>
+                                    </div> -->
+                                </div>
+                                <div class="content_card">
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <p class="content_title">Content</p>
+                                        </div>
+                                        <div class="col text-right">
+                                            <i class="fa fa-angle-up"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row p-3 mb-5">
+                                        <div class="col-md-1 pr-0">
+                                            <p class="body_title">Body Copy</p>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <ckeditor [config]="defaultConfig" [editor]="Editor" [(ngModel)]="T_BILL_EditorData" ></ckeditor>
+                                            <div class="mt-4 text-left">
+                                                <button class="btn-reset" (click)="resetData('T_BILL')">Reset</button>
+                                                
+                                                <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('T_BILL')" [disabled]="loadButton" >
+                                                    <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2">
+                        <a ngbNavLink (click)="getProductInfo('BOND')" >Bonds</a>
+                        <ng-template ngbNavContent>
+                            <div class="container">
+                                <div class="row mt-4">
+                                    <div class="col text-left">
+                                        <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit / Products</b></a>
+                                        </p>
+                                    </div>
+                                    <!-- <div class="col text-right">
+                                        <button class="btn-reset" (click)="resetData('BOND')">Reset</button>
+                                        <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('BOND')" [disabled]="loadButton" >
+                                            <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                            Save
+                                        </button>
+                                       
+                                    </div> -->
+                                </div>
+                                <div class="content_card">
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <p class="content_title">Content</p>
+                                        </div>
+                                        <div class="col text-right">
+                                            <i class="fa fa-angle-up"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row p-3 mb-5">
+                                        <div class="col-md-1  pr-0">
+                                            <p class="body_title">Body Copy</p>
+                                        </div>
+                                        <div class="col-md-11"> 
+                                                <ckeditor [config]="defaultConfig" [editor]="Editor" [(ngModel)]="BOND_EditorData" ></ckeditor>
+                                                <div class="mt-4 text-left">
+                                                    <button class="btn-reset" (click)="resetData('BOND')">Reset</button>
+                                                   
+                                                    <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('BOND')" [disabled]="loadButton" >
+                                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                                        Save
+                                                    </button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">&nbsp;</div>
+                                </div>
+                                
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="3">
+                        <a ngbNavLink (click)="getProductInfo('MUTUAL_FUND')">Mutual Funds</a>
+                        <ng-template ngbNavContent>
+                            <div class="container">
+                                <div class="row mt-4">
+                                    <div class="col text-left">
+                                        <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit / Products</b></a>
+                                        </p>
+                                    </div>
+                                    <!-- <div class="col text-right">
+                                        <button class="btn-reset" (click)="resetData('MUTUAL_FUND')">Reset</button>
+                                       
+                                        <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('MUTUAL_FUND')" [disabled]="loadButton" >
+                                            <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                            Save
+                                        </button>
+                                    </div> -->
+                                </div>
+                                <div class="content_card">
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <p class="content_title">Content</p>
+                                        </div>
+                                        <div class="col text-right">
+                                            <i class="fa fa-angle-up"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row p-3 mb-5">
+                                        <div class="col-md-1  pr-0">
+                                            <p class="body_title">Body Copy</p>
+                                        </div>
+                                        <div class="col-md-11">
+                                           
+                                                <ckeditor [config]="defaultConfig" [editor]="Editor" [(ngModel)]="MUTUAL_FUND_EditorData" ></ckeditor>
+                                                <div class="mt-4 text-left">
+                                                    <button class="btn-reset" (click)="resetData('MUTUAL_FUND')">Reset</button>
+                                                    
+                                                    <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('MUTUAL_FUND')" [disabled]="loadButton" >
+                                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                                        Save
+                                                    </button>
+                                                </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="4">
+                        <a ngbNavLink (click)="getProductInfo('SHARE')">Shares</a>
+                        <ng-template ngbNavContent>
+                            <div class="container">
+                                <div class="row mt-4">
+                                    <div class="col text-left">
+                                        <p class="breadcrumb-item "><a class="breadcrumb_link"><b>Edit / Products</b></a>
+                                        </p>
+                                    </div>
+                                    <!-- <div class="col text-right">
+                                        <button class="btn-reset" (click)="resetData('SHARE')">Reset</button>
+                                      
+                                        <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('SHARE')" [disabled]="loadButton" >
+                                            <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                            Save
+                                        </button>
+                                    </div> -->
+                                </div>
+                                <div class="content_card">
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <p class="content_title">Content</p>
+                                        </div>
+                                        <div class="col text-right">
+                                            <i class="fa fa-angle-up"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row p-3 mb-5">
+                                        <div class="col-md-1  pr-0">
+                                            <p class="body_title">Body Copy</p>
+                                        </div>
+                                        <div class="col-md-11">
+                                            
+                                                <ckeditor [config]="defaultConfig" [config]="defaultConfig"  [editor]="Editor" [(ngModel)]="SHARE_EditorData" ></ckeditor>
+                                                <div class="mt-4 text-left">
+                                                    <button class="btn-reset" (click)="resetData('SHARE')">Reset</button>
+                                                   
+                                                    <button type="submit" [ngClass]="loadButton ? 'btn-save-disabled' : 'btn-save' " (click)="editorFuntion('SHARE')" [disabled]="loadButton" >
+                                                        <i class="spinner-border text-color-grey btn-spin  mb-1 mr-1 " *ngIf="loadButton"  style="height:1rem; width:1rem"></i>
+                                                        Save
+                                                    </button>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </ng-template>
+                    </li>
+                </ul>
+                <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+            </div>
+        </div>
+    </div>
+</div>

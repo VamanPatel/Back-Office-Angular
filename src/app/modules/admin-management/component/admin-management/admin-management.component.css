@@ -1,0 +1,130 @@
+.cust_title {
+    color: #212529;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.bg-main {
+    background-color: #F8F8F8;
+    height: auto;
+    margin-bottom: 50px;
+}
+.breadcrumb {
+    padding: 18px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: 0px;
+    text-align: left;
+    margin-top: -27px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.breadcrumb_link {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb_link:hover {
+    color: #A7AFB7;
+    text-decoration: none;
+}
+.breadcrumb>.active {
+    color: #212529;
+}
+.breadcrumb>li+li:before {
+    padding: 0px 8px !important;
+    color: #A7AFB7 !important;
+    content: "\002F" !important;
+    margin-left: -8px;
+}
+.border-top {
+    border-top: 2px solid #dee2e6 !important;
+    margin-top: -25px;
+}
+.add_user_img {
+    padding: 20px;
+    padding-right: 0px;
+    cursor: pointer;
+}
+.fa-refresh {
+    font-size: 22px;
+    vertical-align: middle;
+    margin-left: 17px;
+    cursor: pointer;
+    color: #A0A0A0;
+}
+.admin_card {
+    box-shadow: 0px 0px 0px #5a71d01b;
+    border: 1px solid #E4E4E4;
+    opacity: 1;
+    height: auto;
+    width: 100%;
+    margin-top: -20px;
+}
+.card_title {
+    padding: 20px;
+    font-size: 20px;
+    padding-bottom: 0px;
+    color: #212529;
+    font-weight: 600;
+}
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 14px;
+}
+.invoice_img {
+    width: 22px;
+}
+.table thead th {
+    background-color: #5A71D01B;
+}
+.btn-status {
+    border: 1px solid #bb2428;
+    padding: 2px 12px;
+    color: #bb2428;
+}
+
+.icn_img {
+    color: #A0A0A0;
+    font-size: 20px;
+    vertical-align: text-bottom;
+    padding-right: 7px;
+    padding-top: 6px;
+}
+.icn_title {
+    color: #A0A0A0;
+    padding-right: 17px;
+}
+.btn-status1 {
+    border: 1px solid green;
+    padding: 2px 20px;
+    color: green;
+}
+:host::ng-deep .pagination {
+    padding-right: 20px;
+}
+.btn-outline-primary {
+    border: none;
+    color: #212529;
+    font-size: 18px;
+    font-weight: 600;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+    color: #212529;
+    background-color: transparent;
+    border: none;
+}
+.btn-outline-primary:hover {
+    background-color: transparent;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+.dropdown {
+    padding: 15px;
+    padding-bottom: 0px;
+}

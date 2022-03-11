@@ -1,0 +1,221 @@
+<div class="bg-main">
+  <div class="container">
+    <div class="row">
+      <h3 class="cust_title">Transactions</h3>
+    </div>
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+          <li class="breadcrumb-item">
+            <a class="breadcrumb_link">Transaction</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Transfer Management
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row border-top"></div>
+    <div class="row">
+      <div class="overview_card">
+        <p class="card_title">Transfer Management</p>
+        <div class="bg_grey">
+          <div class="filter_class">
+            <div class="row">
+              <span class="filter_subtitle">Filter</span>
+              <span class="filter_subtitle1 ml-4">Transfer <br />Mode</span>
+              <div class="likedropdown">
+                <select class="form-control filter-dropdowns">
+                  <option value="">All</option>
+                  <option value="">--</option>
+                  <option value="">--</option>
+                  <option value="">--</option>
+                </select>
+              </div>
+              <span class="filter_subtitle1 ml-4">Receive <br />Mode</span>
+              <div class="likedropdown">
+                <select class="form-control filter-dropdowns">
+                  <option value="">All</option>
+                  <option value="">--</option>
+                  <option value="">--</option>
+                  <option value="">--</option>
+                </select>
+              </div>
+              <span class="filter_subtitle1 ml-4">Transfer <br />To</span>
+              <div class="likedropdown">
+                <select class="form-control filter-dropdowns">
+                  <option value="">All</option>
+                  <option value="">--</option>
+                  <option value="">--</option>
+                  <option value="">--</option>
+                </select>
+              </div>
+              <span class="filter_subtitle ml-4" style="margin-right: 8px"
+                >Date</span
+              >
+              <div class="likedropdown">
+                <input
+                  class="form-control filter-dropdowns"
+                  placeholder="From"
+                  name="startDate"
+                  [(ngModel)]="startDate"
+                  ngbDatepicker
+                  #sd="ngbDatepicker"
+                  (click)="sd.toggle()"
+                  autocomplete="off"
+                />
+                <span class="fa fa-chevron-down errspan"></span>
+              </div>
+              <div class="likedropdown ml-2">
+                <input
+                  class="form-control filter-dropdowns"
+                  placeholder="To"
+                  name="endDate"
+                  [(ngModel)]="endDate"
+                  ngbDatepicker
+                  #ed="ngbDatepicker"
+                  (click)="ed.toggle()"
+                  autocomplete="off"
+                />
+                <span class="fa fa-chevron-down errspan"></span>
+              </div>
+              <div class="likedropdown ml-2">
+                <select class="form-control filter-dropdowns">
+                  <option value="">Status</option>
+                  <option value="">Active</option>
+                  <option value="">Deactive</option>
+                  <option value="">New</option>
+                </select>
+              </div>
+              <span class="action_icn ml-4 pt-1"
+                ><i class="fa fa-refresh"></i
+              ></span>
+
+              <select class="sort-dropdowns ml-4">
+                <option value="">Sort</option>
+                <option value="ASC">ASC</option>
+                <option value="DESC">DESC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">Trans. ID</th>
+                <th scope="col">Customers</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Transfer Mode</th>
+                <th scope="col">Receive Mode</th>
+                <th scope="col">Transfer To</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    [routerLink]="['/transfer-management/transfer-detail']"
+                    class="detail_link"
+                    >120521</a
+                  >
+                </td>
+                <td>Amber Green</td>
+                <td>20-03-2021</td>
+                <td>Mobile Money</td>
+                <td>Seed Wallet</td>
+                <td>Self</td>
+                <td class="text-success">
+                  +115.00 <span class="text-secondary">GHS</span>
+                </td>
+                <td><button class="btn-status">Pending</button></td>
+                <td><button class="btn-retry">Retry</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    class="detail_link"
+                    [routerLink]="['/transfer-management/transfer-detail']"
+                    >120521</a
+                  >
+                </td>
+                <td>Amber Green</td>
+                <td>20-03-2021</td>
+                <td>Mobile Money</td>
+                <td>Seed Wallet</td>
+                <td>Others</td>
+                <td class="text-success">
+                  +115.00 <span class="text-secondary">GHS</span>
+                </td>
+                <td><button class="btn-status">Pending</button></td>
+                <td><button class="btn-retry">Retry</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    class="detail_link"
+                    [routerLink]="['/transfer-management/transfer-detail']"
+                    >120521</a
+                  >
+                </td>
+                <td>Amber Green</td>
+                <td>20-03-2021</td>
+                <td>Mobile Money</td>
+                <td>Seed Wallet</td>
+                <td>Self</td>
+                <td class="text-success">
+                  +115.00 <span class="text-secondary">GHS</span>
+                </td>
+                <td><button class="btn-status">Pending</button></td>
+                <td><button class="btn-retry">Retry</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    class="detail_link"
+                    [routerLink]="['/transfer-management/transfer-detail']"
+                    >120521</a
+                  >
+                </td>
+                <td>Amber Green</td>
+                <td>20-03-2021</td>
+                <td>Mobile Money</td>
+                <td>Seed Wallet</td>
+                <td>Others</td>
+                <td class="text-success">
+                  +115.00 <span class="text-secondary">GHS</span>
+                </td>
+                <td><button class="btn-status">Pending</button></td>
+                <td><button class="btn-retry">Retry</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    class="detail_link"
+                    [routerLink]="['/transfer-management/transfer-detail']"
+                    >120521</a
+                  >
+                </td>
+                <td>Amber Green</td>
+                <td>20-03-2021</td>
+                <td>Mobile Money</td>
+                <td>Seed Wallet</td>
+                <td>Self</td>
+                <td class="text-success">
+                  +115.00 <span class="text-secondary">GHS</span>
+                </td>
+                <td><button class="btn-status">Pending</button></td>
+                <td><button class="btn-retry">Retry</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

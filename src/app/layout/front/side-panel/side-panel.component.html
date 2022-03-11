@@ -1,0 +1,191 @@
+<aside id="sidebar-wrapper">
+  <div class="sidebar-brand">
+    <div class="row">
+      <img
+        _ngcontent-nmu-c107=""
+        src="assets/side_panel/face2.png"
+        class="pl-3 profile_img"
+      />
+      <div class="profile_content mt-2">
+        <p class="pl-2 profile_name text-color-212529">
+          {{ adminName | titlecase }}
+        </p>
+        <p class="pl-2">
+          <i class="profile_location"></i
+          ><span class="profile_location"> {{ lastLogin }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <ul class="sidebar-nav mt-3 pt-3">
+    <li [class.active]="activePanel === 'dashboard'" id="dashboard">
+      <a [routerLink]="['/dashboard']">
+        <i class="fa fa-home side_icn"></i>
+        <span class="side_title" style="margin-left: 15px"> Dashboard </span>
+      </a>
+    </li>
+    <hr class="mt-0" />
+    <li [class.active]="activePanel === 'customers'" id="customers">
+      <a [routerLink]="['/customer/list']">
+        <i class="fa fa-user side_icn" aria-hidden="true"></i>
+        <span class="side_title"> Customers</span>
+      </a>
+    </li>
+    <hr class="mt-0" />
+    <!-- <li [class.active]="activePanel === 'products'" id='products'>
+      <a [routerLink]="['/product']">
+        <i class="fa fa-plus-square-o side_icn" aria-hidden="true"></i>
+        <span class="side_title">Products</span>
+      </a>
+    </li> -->
+
+    <li [class.active]="activePanel === 'products'" id="products">
+      <a [routerLink]="" data-toggle="collapse" data-target="#productScroll">
+        <i class="fa fa-plus-square-o side_icn" aria-hidden="true"></i>
+        <span class="side_title" style="margin-left: 28px"
+          >Product <i class="fa fa-angle-down ml-4 pl-3"></i
+        ></span>
+      </a>
+      <ul id="productScroll" class="collapse sub_menu_class">
+        <li
+          class="sub_links"
+          [routerLink]="['/product/t-bill']"
+          [routerLinkActive]="['active']"
+        >
+          T-Bills
+        </li>
+        <li
+          class="sub_links"
+          [routerLink]="['/product/bond']"
+          [routerLinkActive]="['active']"
+        >
+          Bonds
+        </li>
+        <li
+          class="sub_links"
+          [routerLink]="['/product/shares']"
+          [routerLinkActive]="['active']"
+        >
+          Shares
+        </li>
+        <li
+          class="sub_links"
+          [routerLink]="['/product/mutual-funds']"
+          [routerLinkActive]="['active']"
+        >
+          Mutual Funds
+        </li>
+      </ul>
+    </li>
+
+    <!-- <hr class="mt-0">
+    <li [class.active]="activePanel === 'transaction'" id='transaction'>
+      <a [routerLink]="['/transactions']">
+        <i class="fa fa-first-order side_icn" aria-hidden="true"></i>
+        <span class="side_title" style="margin-left: 15px;">Transactions</span>
+      </a>
+    </li> -->
+    <hr class="mt-0" />
+    <li [class.active]="activePanel === 'log'" id="log">
+      <a [routerLink]="['/logs']">
+        <i class="fa fa-exchange side_icn" aria-hidden="true"></i>
+        <span class="side_title">Transfer</span>
+      </a>
+    </li>
+    <hr class="mt-0" />
+    <!-- <li ngbDropdown [class.active]="activePanel === 'info'" id='info'>
+      <a [routerLink]="['/info-management']" id="dropdownBasic1" ngbDropdownToggle>
+        <i class="fa fa-info side_icn" aria-hidden="true"></i>
+        <span class="side_title" style="margin-left: 30px;" >Info Management</span>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem [routerLink]="['/info-management/testimonies']">Testimonies</button>
+          <button ngbDropdownItem [routerLink]="['/info-management/web']">Web</button>
+          <button ngbDropdownItem [routerLink]="['/info-management/mobile']">Mobile</button>
+          <button ngbDropdownItem [routerLink]="['/info-management/product']">Product</button>
+        </div>
+      </a>
+    </li> -->
+
+    <li [class.active]="activePanel === 'info'" id="info">
+      <a [routerLink]="" data-toggle="collapse" data-target="#infoScroll">
+        <i class="fa fa-info side_icn" aria-hidden="true"></i>
+        <span class="side_title" style="margin-left: 28px"
+          >Info Management <i class="fa fa-angle-down"></i
+        ></span>
+      </a>
+      <ul id="infoScroll" class="collapse sub_menu_class">
+        <li
+          class="sub_links"
+          [routerLink]="['/info-management/testimonies']"
+          [routerLinkActive]="['active']"
+        >
+          Testimonies
+        </li>
+        <li
+          class="sub_links"
+          [routerLink]="['/info-management/web']"
+          [routerLinkActive]="['active']"
+        >
+          Web
+        </li>
+        <li
+          class="sub_links"
+          [routerLink]="['/info-management/mobile']"
+          [routerLinkActive]="['active']"
+        >
+          Mobile
+        </li>
+        <li
+          class="sub_links"
+          [routerLink]="['/info-management/product']"
+          [routerLinkActive]="['active']"
+        >
+          Product
+        </li>
+      </ul>
+    </li>
+
+    <hr class="mt-0" />
+    <li
+      [class.active]="activePanel === 'admin'"
+      id="admin"
+      *ngIf="isSupperAdmin"
+    >
+      <a [routerLink]="['/admin-management']">
+        <i
+          class="fa fa-users side_icn"
+          aria-hidden="true"
+          style="margin-left: 3px"
+        ></i>
+        <span class="side_title" style="margin-left: 26px"
+          >Admin Management</span
+        >
+      </a>
+    </li>
+
+    <hr class="mt-0" />
+    <li
+      [class.active]="activePanel === 'transfermanagement'"
+      id="transfermanagement"
+      *ngIf="isSupperAdmin"
+    >
+      <a [routerLink]="['/transfer-management']">
+        <i
+          class="fa fa-users side_icn"
+          aria-hidden="true"
+          style="margin-left: 3px"
+        ></i>
+        <span class="side_title" style="margin-left: 26px"
+          >Transfer Management</span
+        >
+      </a>
+    </li>
+    <hr class="mt-0" *ngIf="isSupperAdmin" />
+    <li [class.active]="activePanel === 'setting'" id="setting">
+      <a [routerLink]="['/settings']">
+        <i class="fa fa-cog side_icn" aria-hidden="true"></i>
+        <span class="side_title">Settings</span>
+      </a>
+    </li>
+  </ul>
+</aside>

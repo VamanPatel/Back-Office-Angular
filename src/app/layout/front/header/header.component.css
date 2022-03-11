@@ -1,0 +1,40 @@
+.header-div{
+    height: 82px;
+    background-color: #0E3D3F;
+}
+
+.bg-light {
+    background-color: #0E3D3F !important;
+}
+
+
+
+.border-radius-0{
+    border-radius: 0 !important;
+}
+
+.background-color-white{
+    background-color: white !important;
+}
+
+@media screen and (min-width: 768px){
+    .search-input{
+        width: 369px
+    }
+}
+
+@media screen and (min-width:360px) and (max-width:640px) {
+    .divide_line {
+        display: none;
+    }
+    .navbar-nav {
+        text-align: right;
+        line-height: 35px;
+    }
+    .navbar-light .navbar-toggler {
+        margin-right: 10px;
+    }
+    .hide-unhide-button {
+        margin-left: -40px;
+    }
+}

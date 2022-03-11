@@ -1,0 +1,211 @@
+<div class="bg-main">
+    <div class="container">
+        <div class="row">
+            <h3 class="cust_title">Products</h3>
+        </div>
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <!-- <li class="breadcrumb-item "><a class="breadcrumb_link" [routerLink]="['/']">Customers</a></li> -->
+                    <li class="breadcrumb-item "><a class="breadcrumb_link">Products</a></li>
+                    <!-- <li class="breadcrumb-item "><a class="breadcrumb_link">T-Bills </a></li> -->
+                    <li class="breadcrumb-item active" aria-current="page">Shares</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row border-top"></div>
+
+        <div class="row">
+            <div class="tab_content">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                    <li [ngbNavItem]="1">
+                        <a ngbNavLink>Shares (4)</a>
+                        <ng-template ngbNavContent>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="overview_card">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" style="vertical-align: middle;">Name</th>
+                                                    <th scope="col">Security Code<br>(ISIN)</th>
+                                                    <th scope="col" style="vertical-align: middle;">Ticker Symbole</th>
+                                                    <th scope="col" style="vertical-align: middle;">Issue Date</th>
+                                                    <th scope="col">Indicative <br>Price</th>
+                                                    <th scope="col" style="vertical-align: middle;">Amount</th>
+                                                    <th scope="col" style="vertical-align: middle;">Status</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Shares 1</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>
+                                                    <td><span class="text-success">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-active">ACTIVATED</button>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shares 2</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>                                                    
+                                                    <td><span class="text-danger">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-deactive">NOT ACTIVATE</button>
+                                                    </td>
+                                                    <td>
+                                                        <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shares 3</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>
+                                                    <td><span class="text-success">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-active">ACTIVATED</button>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shares 4</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>
+                                                    <td><span class="text-success">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-active">ACTIVATED</button>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span> -->
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2">
+                        <a ngbNavLink>Archive</a>
+                        <ng-template ngbNavContent>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="overview_card">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" style="vertical-align: middle;">Name</th>
+                                                    <th scope="col">Security Code<br>(ISIN)</th>
+                                                    <th scope="col" style="vertical-align: middle;">Ticker Symbole</th>
+                                                    <th scope="col" style="vertical-align: middle;">Issue Date</th>
+                                                    <th scope="col">Indicative <br>Price</th>
+                                                    <th scope="col" style="vertical-align: middle;">Amount</th>
+                                                    <th scope="col" style="vertical-align: middle;">Status</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Shares 1</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>
+                                                    <td><span class="text-success">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-active">ACTIVATED</button>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shares 2</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>                                                    
+                                                    <td><span class="text-danger">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-deactive">NOT ACTIVATE</button>
+                                                    </td>
+                                                    <td>
+                                                        <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shares 3</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>
+                                                    <td><span class="text-success">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-active">ACTIVATED</button>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shares 4</td>
+                                                    <td>XS1821416234</td>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>20-11-2023</td>
+                                                    <td>100 GHS</td>
+                                                    <td><span class="text-success">115.00</span> GHS</td>
+                                                    <td>
+                                                        <button class="btn-active">ACTIVATED</button>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <span class="cursor-pointer"><i class="fa fa-trash icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-pencil-square-o icn_img" aria-hidden="true"></i></span>
+                                                        <span class="cursor-pointer"><i class="fa fa-eye icn_img" aria-hidden="true"></i></span> -->
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                </ul>
+                <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+            </div>
+        </div>
+    </div>
+</div>

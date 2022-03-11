@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a [routerLink]="['/dashboard']" class="cursor-pointer">
+    <img src="assets/onboarding/logo.png" class="p-4">
+  </a>
+  <a class="navbar-brand" id="sidebar-toggle" (click)="toggleSidePalnel()">
+    <!-- <i class="fa fa-bars hide-unhide-button cursor-pointer"></i> -->
+    <img src="assets/cust_details/menu.png" class="menu_img hide-unhide-button cursor-pointer">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon "></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+    <form class="form-inline my-2 my-lg-0 ml-auto">
+      <div class="row">
+        <div *ngIf="activePanel !== 'dashboard'" class="input-group col-md-12">
+          <input class="form-control py-2 border-right-0 border search-input border-radius-0" type="search" value=""
+            placeholder="Search">
+          <span class="input-group-append background-color-white ">
+            <button class="btn btn-outline-secondary border-left-0 border" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item active pl-3 pr-3">
+        <a class="nav-link">
+          <img src="assets/side_panel/danger_img.png" class="">
+        </a>
+      </li>
+      <li class="nav-item divide_line pl-3 pr-3 mt-2" style="color: #a29e9e;">
+        |
+      </li>
+      <li class="nav-item pl-3 pr-3">
+        <img src="assets/side_panel/filter_img.png" class="mt-2 pt-1">
+      </li>
+      <li class="nav-item divide_line pl-3 pr-3 mt-2" style="color: #a29e9e;">
+        |
+      </li>
+      <li class="nav-item pl-3 pr-3" title="Logout">
+        <a class="nav-link" (click)="logoutModal()">
+          <img src="assets/side_panel/logout_img.png" class="cursor-pointer">
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>

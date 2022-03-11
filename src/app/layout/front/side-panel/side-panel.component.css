@@ -1,0 +1,68 @@
+/* :host::ng-deep.dropdown-menu.show {
+    transform: translate(15px, 38px) !important;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #0e3d3f;
+    color: #FFF;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: #0e3d3f;
+    color: #FFF;
+}
+ 
+.dropdown-item {
+    padding: 0px 22px;
+}
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 3px;
+    vertical-align: initial;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    font-size: 20px;
+} */
+
+ 
+.panel-title a:after {
+    font-family:Fontawesome;
+    content:'\f077';
+    float:right;
+    font-size:11px;
+    font-weight:300;
+    margin-right: 14px;
+    margin-top: -15px;
+}
+.panel-title a.collapsed:after {
+    font-family:Fontawesome;
+    content:'\f078';
+}
+.panel-body {
+    margin-left: 55px;
+    margin-bottom: -15px;
+    cursor: pointer;
+}
+.sub_menu_class {
+    list-style-type: none;
+    cursor: pointer;
+    padding-left: 65px;
+    background-color: #0e3d3f;
+    font-size: 15px;
+
+}
+.fa-angle-down {
+    margin-left: -10px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+.sub_links {
+    color: white;
+    opacity: .5;
+}
+.active {
+    background-color: transparent;
+    color: #fff;
+    opacity: initial;
+}
